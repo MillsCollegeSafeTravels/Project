@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    	
+    	<ImageView 
+    		android:layout_height="200dip" 
+    		android:id="@+id/logo_view" 
+    		android:src="@drawable/main_logo" 
+    		android:layout_width="fill_parent"
+    		android:layout_gravity="center_vertical"
+    		android:layout_margin="5dip"/>
+
+		<Button 
+			android:layout_height="wrap_content" 
+			android:id="@+id/track_button" 
+			android:layout_width="fill_parent" 
+			android:text="@string/track_label"
+			android:layout_marginTop= "20dip"
+			android:layout_marginLeft= "20dip"
+			android:layout_marginRight="20dip"
+			android:layout_marginBottom="10dip" />
+
+		<Button 
+			android:text="@string/route_label"
+			android:id="@+id/route_button" 
+			android:layout_width="fill_parent"
+			android:layout_marginLeft= "20dip"
+			android:layout_marginRight="20dip" 
+			android:layout_height="wrap_content"/>
+
+</LinearLayout>

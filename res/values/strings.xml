@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, FirstPage!</string>
+    <string name="app_name">FirstPage</string>
+    <string name="track_label">Track Me</string>
+    <string name="route_label">Safe Route</string>
+</resources>
