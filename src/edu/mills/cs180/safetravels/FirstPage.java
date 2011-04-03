@@ -27,7 +27,7 @@ public class FirstPage extends Activity implements OnClickListener {
 			startActivity(new Intent(this,RoutePage.class));
     		break;
 		case R.id.track_button:
-			startActivity(new Intent(this,LocationFinder.class));
+			startActivity(new Intent(this,MapPage.class));
 			break;
 		}
    	}
