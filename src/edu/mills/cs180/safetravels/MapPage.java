@@ -61,6 +61,7 @@ public class MapPage extends MapActivity implements OnClickListener {
 	@Override
 	public void onClick(View v){
 		switch(v.getId()){
+		//add custom buttons
 		case R.id.send_to_friend_button:
 			startActivity(new Intent(this, TestPage.class));
 			break;
