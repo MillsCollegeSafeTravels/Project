@@ -2,8 +2,8 @@
 <resources>
     <string name="hello">Hello World, FirstPage!</string>
     <string name="app_name">FirstPage</string>
-    <string name="track_label">Track Me</string>
-    <string name="route_label">Safe Route</string>
+    <string name="track_label">Track My Route</string>
+    <string name="route_label">Plan a Safe Route</string>
     <string name="MapAPIKey">0JHLvaWdrY-Cye9pmNQ_AZg0bkdEuLeJlZTDW-g</string>
     <string name="fingerprint">5F:81:23:98:C6:C2:4E:87:61:31:35:2D:37:41:95:02</string>
 </resources>

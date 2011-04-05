@@ -2,8 +2,10 @@ package edu.mills.cs180.safetravels;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.PixelFormat;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.view.View.OnClickListener;
 
 public class FirstPage extends Activity implements OnClickListener {
@@ -19,6 +21,15 @@ public class FirstPage extends Activity implements OnClickListener {
         View SafeRouteButton = findViewById(R.id.route_button);
         SafeRouteButton.setOnClickListener(this);
     }
+    
+    @Override
+    public void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        Window window = getWindow();
+        // Eliminates color banding
+        window.setFormat(PixelFormat.RGBA_8888);
+    }
+    
 	@Override
     public void onClick(View v) {
 		// TODO Auto-generated method stub
@@ -27,7 +38,7 @@ public class FirstPage extends Activity implements OnClickListener {
 			startActivity(new Intent(this,RoutePage.class));
     		break;
 		case R.id.track_button:
-			startActivity(new Intent(this,MapPage.class));
+//			startActivity(new Intent(this,MapPage.class));
 			break;
 		}
    	}

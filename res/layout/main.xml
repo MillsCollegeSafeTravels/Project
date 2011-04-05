@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    android:background="@drawable/background">
     	
     	<ImageView 
     		android:layout_height="200dip" 
@@ -10,13 +11,15 @@
     		android:src="@drawable/main_logo" 
     		android:layout_width="fill_parent"
     		android:layout_gravity="center_vertical"
-    		android:layout_margin="5dip"/>
+       		/>
 
 		<Button 
 			android:id="@+id/track_button" 
 			android:layout_height="wrap_content" 
 			android:layout_width="wrap_content" 
 			android:text="@string/track_label"
+			android:textSize="18sp"
+			android:typeface="sans"
 			android:layout_marginTop= "20dip"			
 			android:layout_marginBottom="10dip"
 			android:layout_gravity="center_horizontal"
@@ -24,8 +27,10 @@
 			
 
 		<Button 
-			android:text="@string/route_label"
 			android:id="@+id/route_button"
+			android:text="@string/route_label"
+			android:typeface="sans"
+			android:textSize="18sp"
 			android:layout_height="wrap_content" 
 			android:layout_width="wrap_content"
 			android:layout_gravity="center_horizontal"
