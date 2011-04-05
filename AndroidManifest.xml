@@ -23,8 +23,11 @@
 					android:label="@string/app_name"
 					android:theme="@android:style/Theme.NoTitleBar"/>
 		<activity android:name=".LocationFinder" />
-		<activity android:name=".MapPage" />
-		
+		<activity android:name=".TestPage"
+			android:theme="@android:style/Theme.NoTitleBar"/>
+		<activity android:name=".MapPage" 
+			android:theme="@android:style/Theme.NoTitleBar"/>
+		<uses-library android:name="com.google.android.maps"/>
     </application>
     <uses-sdk android:minSdkVersion="3" />	
 </manifest> 

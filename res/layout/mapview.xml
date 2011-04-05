@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-   xmlns:android="http://schemas.android.com/apk/res/android"
-   android:id="@+id/frame"
-   android:orientation="vertical"
-   android:layout_width="fill_parent"
-   android:layout_height="fill_parent">
-   <com.google.android.maps.MapView
-      android:id="@+id/map"
-      android:apiKey="@string/MapAPIKey"
-      android:layout_width="fill_parent"
-      android:layout_height="fill_parent" 
-      android:clickable="true" />
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/frame" 
+	android:orientation="vertical"
+	android:layout_width="fill_parent" 
+	android:layout_height="fill_parent">
+	<com.google.android.maps.MapView
+		android:id="@+id/map" 
+		android:apiKey="@string/MapAPIKey"
+		android:layout_width="fill_parent" 
+		android:layout_height="350dip"
+		android:clickable="true" />
+
+	<LinearLayout 
+		android:layout_height="wrap_content"
+		android:layout_width="fill_parent"
+		android:orientation="horizontal">
+			<Button 
+			android:layout_width="fill_parent" 
+			android:id="@+id/made_it_button"
+			android:text="@string/made_it_label" />
+			<Button 
+			android:layout_width="fill_parent" 
+			android:id="@+id/send_to_friend_button"
+			android:text="@string/send_to_friend_label" />
+	</LinearLayout>
 </LinearLayout>
