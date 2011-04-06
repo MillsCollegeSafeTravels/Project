@@ -27,6 +27,11 @@ public class MapPage extends MapActivity implements OnClickListener {
 		setContentView(R.layout.mapview);
 		initMapView();
 		initMyLocation();
+		 //set up click listeners
+        View SendToFriendButton = findViewById(R.id.send_to_friend_button);
+        SendToFriendButton.setOnClickListener(this);
+        View MadeItButton = findViewById(R.id.made_it_button);
+        MadeItButton.setOnClickListener(this);
 	}
 
 	/** Find and initialize the map view. */
