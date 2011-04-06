@@ -32,7 +32,6 @@ public class FirstPage extends Activity implements OnClickListener {
     
 	@Override
     public void onClick(View v) {
-		// TODO Auto-generated method stub
 		switch (v.getId()){
 		case R.id.route_button:
 			startActivity(new Intent(this,RoutePage.class));
