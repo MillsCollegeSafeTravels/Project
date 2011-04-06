@@ -4,6 +4,7 @@
 package edu.mills.cs180.safetravels;
 
 import android.content.Intent;
+import android.location.Location;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -20,6 +21,7 @@ import com.google.android.maps.MyLocationOverlay;
 public class MapPage extends MapActivity implements OnClickListener {
 	private MapView map;
 	private MapController controller;
+	private MyLocationOverlay overlay;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -38,13 +40,13 @@ public class MapPage extends MapActivity implements OnClickListener {
 	private void initMapView() {
 		map = (MapView) findViewById(R.id.map);
 		controller = map.getController();
-		map.setSatellite(true);
+		map.setSatellite(false);
 		map.setBuiltInZoomControls(true);
 	}
 
 	/** Start tracking the position on the map. */
 	private void initMyLocation() {
-		final MyLocationOverlay overlay = new MyLocationOverlay(this, map);
+		overlay = new MyLocationOverlay(this, map);
 		overlay.enableMyLocation();
 		overlay.enableCompass(); // does not work in emulator
 		overlay.runOnFirstFix(new Runnable() {
@@ -57,7 +59,7 @@ public class MapPage extends MapActivity implements OnClickListener {
 		});
 		map.getOverlays().add(overlay);
 	}
-
+	
 	@Override
 	protected boolean isRouteDisplayed() {
 		// Required by MapActivity
@@ -71,6 +73,8 @@ public class MapPage extends MapActivity implements OnClickListener {
 			startActivity(new Intent(this, TestPage.class));
 			break;
 		case R.id.made_it_button:
+			overlay.disableMyLocation();
+			overlay.disableCompass();
 			startActivity(new Intent(this, TestPage.class));
 			break;
 		}
