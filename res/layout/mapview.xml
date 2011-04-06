@@ -5,7 +5,8 @@
   	 android:id="@+id/frame"
   	 android:orientation="vertical"
   	 android:layout_width="fill_parent"
-  	 android:layout_height="fill_parent">
+  	 android:layout_height="fill_parent"
+  	 android:background="@drawable/background">
 	<com.google.android.maps.MapView
       	android:id="@+id/map"
       	android:apiKey="@string/MapAPIKey"
@@ -20,13 +21,27 @@
 			android:layout_height="wrap_content"
 			android:stretchColumns="*">
 			<Button
-				android:layout_width="fill_parent"
 				android:id="@+id/made_it_button"
-				android:text="@string/made_it_label"/>
+				android:text="@string/made_it_label"
+				android:layout_height="wrap_content" 
+				android:layout_width="wrap_content" 
+				android:textSize="18sp"
+				android:typeface="sans"
+				android:layout_marginTop= "20dip"			
+				android:layout_marginBottom="10dip"
+				android:layout_gravity="center_horizontal"
+				android:background="@drawable/littlebutton"/>
 			<Button
-				android:layout_width="fill_parent"
 				android:id="@+id/send_to_friend_button"
-				android:text="@string/send_to_friend_label"/>
+				android:text="@string/send_to_friend_label"
+				android:layout_height="wrap_content" 
+				android:layout_width="wrap_content" 
+				android:textSize="18sp"
+				android:typeface="sans"
+				android:layout_marginTop= "20dip"			
+				android:layout_marginBottom="10dip"
+				android:layout_gravity="center_horizontal"
+				android:background="@drawable/littlebutton"/>
 		</TableRow>
 	</TableLayout>
 </LinearLayout>
