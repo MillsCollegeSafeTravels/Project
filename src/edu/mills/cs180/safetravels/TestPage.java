@@ -8,7 +8,7 @@ public class TestPage extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.routepage);
+        setContentView(R.layout.testpage);
     }
 }
 

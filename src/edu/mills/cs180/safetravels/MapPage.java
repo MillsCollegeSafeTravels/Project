@@ -43,6 +43,7 @@ public class MapPage extends MapActivity implements OnClickListener {
 		overlay.enableMyLocation();
 		overlay.enableCompass(); // does not work in emulator
 		overlay.runOnFirstFix(new Runnable() {
+			@Override
 			public void run() {
 				// Zoom in to current location
 				controller.setZoom(16);

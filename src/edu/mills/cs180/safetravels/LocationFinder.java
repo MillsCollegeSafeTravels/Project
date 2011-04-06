@@ -56,18 +56,22 @@ public class LocationFinder extends Activity implements LocationListener{
 		mgr.removeUpdates(this);
 	}
 	
+	@Override
 	public void onLocationChanged(Location location){
 		dumpLocation(location);
 	}
 	
+	@Override
 	public void onProviderDisabled(String provider){
 		log("\nProvider enabled: " + provider);
 	}
 	
+	@Override
 	public void onProviderEnabled(String provider){
 		log("\nProvider enabled: "+provider);
 	}
 	
+	@Override
 	public void onStatusChanged(String provider, int status, Bundle extras){
 		log("\nProvider status changed: " + provider + ", status=" + S[status]+" , extras=" + extras);
 	}
