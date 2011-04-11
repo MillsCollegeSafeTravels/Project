@@ -15,18 +15,19 @@ public final class R {
         public static final int button=0x7f020001;
         public static final int icon=0x7f020002;
         public static final int littlebutton=0x7f020003;
-        public static final int main_logo=0x7f020004;
-        public static final int main_name=0x7f020005;
-        public static final int pngbutton=0x7f020006;
+        public static final int madeitbutton=0x7f020004;
+        public static final int main_logo=0x7f020005;
+        public static final int main_name=0x7f020006;
+        public static final int safe_travels_logo=0x7f020007;
     }
     public static final class id {
         public static final int frame=0x7f050004;
         public static final int logo_view=0x7f050001;
-        public static final int made_it_button=0x7f050006;
+        public static final int made_it_button=0x7f050007;
         public static final int map=0x7f050005;
         public static final int output=0x7f050000;
         public static final int route_button=0x7f050003;
-        public static final int send_to_friend_button=0x7f050007;
+        public static final int send_to_friend_button=0x7f050006;
         public static final int track_button=0x7f050002;
     }
     public static final class layout {
