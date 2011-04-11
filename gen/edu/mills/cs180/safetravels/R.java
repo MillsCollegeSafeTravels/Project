@@ -20,14 +20,16 @@ public final class R {
         public static final int pngbutton=0x7f020006;
     }
     public static final class id {
+        public static final int danger_button=0x7f050007;
         public static final int frame=0x7f050004;
         public static final int logo_view=0x7f050001;
-        public static final int made_it_button=0x7f050006;
+        public static final int made_it_button=0x7f050008;
         public static final int map=0x7f050005;
         public static final int output=0x7f050000;
         public static final int route_button=0x7f050003;
-        public static final int send_to_friend_button=0x7f050007;
+        public static final int send_to_friend_button=0x7f050006;
         public static final int track_button=0x7f050002;
+        public static final int track_this_route_button=0x7f050009;
     }
     public static final class layout {
         public static final int locationfinder=0x7f030000;
@@ -37,13 +39,15 @@ public final class R {
         public static final int testpage=0x7f030004;
     }
     public static final class string {
-        public static final int MapAPIKey=0x7f040006;
+        public static final int MapAPIKey=0x7f040008;
         public static final int app_name=0x7f040001;
-        public static final int fingerprint=0x7f040007;
+        public static final int danger_label=0x7f040006;
+        public static final int fingerprint=0x7f040009;
         public static final int hello=0x7f040000;
         public static final int made_it_label=0x7f040004;
         public static final int route_label=0x7f040003;
         public static final int send_to_friend_label=0x7f040005;
         public static final int track_label=0x7f040002;
+        public static final int track_this_route_label=0x7f040007;
     }
 }

@@ -26,12 +26,17 @@ public class MapPage extends MapActivity implements OnClickListener {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		//set view to mapview
 		setContentView(R.layout.mapview);
+		//init background map, get sat and zoom 
 		initMapView();
+		//init location, turn on tracker and compass
 		initMyLocation();
 		 //set up click listeners
         View SendToFriendButton = findViewById(R.id.send_to_friend_button);
         SendToFriendButton.setOnClickListener(this);
+        View DangerButton = findViewById(R.id.danger_button);
+        DangerButton.setOnClickListener(this);
         View MadeItButton = findViewById(R.id.made_it_button);
         MadeItButton.setOnClickListener(this);
 	}
@@ -76,6 +81,9 @@ public class MapPage extends MapActivity implements OnClickListener {
 			overlay.disableMyLocation();
 			overlay.disableCompass();
 			startActivity(new Intent(this, TestPage.class));
+			break;
+		case R.id.danger_button:
+			//send message to friend;
 			break;
 		}
 	}

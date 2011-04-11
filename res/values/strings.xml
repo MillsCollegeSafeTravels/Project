@@ -6,6 +6,8 @@
     <string name="route_label">Plan a Safe Route</string>
     <string name="made_it_label">Made It!</string>
     <string name="send_to_friend_label">Send</string>
+    <string name="danger_label">DANGER</string>
+    <string name="track_this_route_label">Track This Route</string>
     <string name="MapAPIKey">0JHLvaWdrY-Cye9pmNQ_AZg0bkdEuLeJlZTDW-g</string>
     <string name="fingerprint">5F:81:23:98:C6:C2:4E:87:61:31:35:2D:37:41:95:02</string>
 </resources>
