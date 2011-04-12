@@ -15,9 +15,10 @@ public final class R {
         public static final int button=0x7f020001;
         public static final int icon=0x7f020002;
         public static final int littlebutton=0x7f020003;
-        public static final int main_logo=0x7f020004;
-        public static final int main_name=0x7f020005;
-        public static final int pngbutton=0x7f020006;
+        public static final int madeitbutton=0x7f020004;
+        public static final int main_logo=0x7f020005;
+        public static final int main_name=0x7f020006;
+        public static final int safe_travels_logo=0x7f020007;
     }
     public static final class id {
         public static final int btnSendSMS=0x7f05000c;
