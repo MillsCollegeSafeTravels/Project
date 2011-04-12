@@ -80,10 +80,10 @@ public class MapPage extends MapActivity implements OnClickListener {
 		case R.id.made_it_button:
 			overlay.disableMyLocation();
 			overlay.disableCompass();
-			startActivity(new Intent(this, TestPage.class));
+			startActivity(new Intent(this, SendTextMessage.class));
 			break;
 		case R.id.danger_button:
-			//send message to friend;
+			startActivity(new Intent(this, SendTextMessageDanger.class));
 			break;
 		}
 	}

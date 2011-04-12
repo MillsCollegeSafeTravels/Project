@@ -3,12 +3,14 @@
       package="edu.mills.cs180.safetravels"
       android:versionCode="1"
       android:versionName="1.0">
-   <uses-permission
+   	<uses-permission
          android:name="android.permission.ACCESS_COARSE_LOCATION" />
-   <uses-permission
+   	<uses-permission
          android:name="android.permission.ACCESS_FINE_LOCATION" />
-   <uses-permission
+   	<uses-permission
          android:name="android.permission.INTERNET" />
+   	<uses-permission android:name="android.permission.SEND_SMS"/>
+   	<uses-permission android:name="android.permission.RECEIVE_SMS"/>
     <application android:icon="@drawable/icon" 
     	android:label="@string/app_name">
         <activity android:name=".FirstPage"
@@ -23,6 +25,7 @@
 					android:label="@string/app_name"
 					android:theme="@android:style/Theme.NoTitleBar"/>
 		<activity android:name=".LocationFinder" />
+		<activity android:name=".SendTextMessage" />
 		<activity android:name=".TestPage"
 			android:theme="@android:style/Theme.NoTitleBar"/>
 		<activity android:name=".MapPage" 
