@@ -15,4 +15,20 @@
     <string name="MapAPIKey">0JHLvaWdrY-Cye9pmNQ_AZg0bkdEuLeJlZTDW-g</string>
     <string name="made_it_text_message">I made it home safe!</string>
     <string name="fingerprint">5F:81:23:98:C6:C2:4E:87:61:31:35:2D:37:41:95:02</string>
+    <string name="no_info">No Information</string>
+    <string-array name="crimes_array">
+    	<item>Aggravated Assault</item>
+    	<item>Murder</item>
+    	<item>Robbery</item>
+    	<item>Simple Assault</item>
+    	<item>Disturbing the Peace</item>
+    	<item>Narcotics</item>
+    	<item>Alcohol</item>
+    	<item>Prostitution</item>
+    	<item>Theft</item>
+    	<item>Vehicle Theft</item>
+    	<item>Vandalism</item>
+    	<item>Burglary</item>
+    	<item>Arson</item>
+    </string-array>
 </resources>
