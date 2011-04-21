@@ -4,8 +4,6 @@
 package edu.mills.cs180.safetravels;
 
 import android.content.Intent;
-import android.graphics.Canvas;
-import android.location.Location;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -14,7 +12,6 @@ import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
 import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
-import com.google.android.maps.MyLocationOverlay;
 
 /**
  * @author KateFeeney
@@ -23,8 +20,8 @@ import com.google.android.maps.MyLocationOverlay;
 public class MapPage extends MapActivity implements OnClickListener {
 	private MapView map;
 	private MapController controller;
-	private MyLocationOverlay overlay;
-	private Location pastLocation;
+	private MyOverlay overlay;
+	protected GeoPoint geoPoint;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -54,7 +51,7 @@ public class MapPage extends MapActivity implements OnClickListener {
 
 	/** Start tracking the position on the map. */
 	private void initMyLocation() {
-		overlay = new MyLocationOverlay(this, map);
+		overlay = new MyOverlay(this, map);
 		overlay.enableMyLocation();
 		overlay.enableCompass(); // does not work in emulator
 		overlay.runOnFirstFix(new Runnable() {
@@ -63,13 +60,7 @@ public class MapPage extends MapActivity implements OnClickListener {
 				// Zoom in to current location
 				controller.setZoom(16);
 				//get location
-				GeoPoint geoPoint = overlay.getMyLocation();
-				//set as first last location
-				//convert to location
-				float latitude=geoPoint.getLatitudeE6()/1000000;
-				float longitude=geoPoint.getLongitudeE6()/1000000;
-				pastLocation.setLatitude(latitude);
-				pastLocation.setLongitude(longitude);
+				geoPoint = overlay.getMyLocation();
 				controller.animateTo(geoPoint);		
 			}
 		});
@@ -98,4 +89,5 @@ public class MapPage extends MapActivity implements OnClickListener {
 			break;
 		}
 	}
+
 }
