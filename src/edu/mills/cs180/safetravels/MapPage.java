@@ -4,11 +4,13 @@
 package edu.mills.cs180.safetravels;
 
 import android.content.Intent;
+import android.graphics.Canvas;
 import android.location.Location;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 
+import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
 import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
@@ -22,6 +24,7 @@ public class MapPage extends MapActivity implements OnClickListener {
 	private MapView map;
 	private MapController controller;
 	private MyLocationOverlay overlay;
+	private Location pastLocation;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -59,12 +62,20 @@ public class MapPage extends MapActivity implements OnClickListener {
 			public void run() {
 				// Zoom in to current location
 				controller.setZoom(16);
-				controller.animateTo(overlay.getMyLocation());
+				//get location
+				GeoPoint geoPoint = overlay.getMyLocation();
+				//set as first last location
+				//convert to location
+				float latitude=geoPoint.getLatitudeE6()/1000000;
+				float longitude=geoPoint.getLongitudeE6()/1000000;
+				pastLocation.setLatitude(latitude);
+				pastLocation.setLongitude(longitude);
+				controller.animateTo(geoPoint);		
 			}
 		});
 		map.getOverlays().add(overlay);
 	}
-	
+
 	@Override
 	protected boolean isRouteDisplayed() {
 		// Required by MapActivity
