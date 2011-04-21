@@ -24,7 +24,6 @@
 		<activity android:name=".RoutePage" 
 			android:label="@string/app_name"
 			android:theme="@android:style/Theme.NoTitleBar" />
-		<activity android:name=".LocationFinder" />
 		<activity android:name=".SendTextMessage" />
 		<activity android:name=".SendMadeItTextMessage" />
 		<activity android:name=".SendTextMessageDanger" />

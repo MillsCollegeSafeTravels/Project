@@ -31,7 +31,7 @@ public class SendTextMessageDanger extends Activity {
 	            public void onClick(View v) 
 	            {                
 	                String phoneNo = txtPhoneNo.getText().toString();
-	                String message = getString(R.string.danger_message);                 
+	                String message = getString(R.string.danger_message);            
 	                if (phoneNo.length()>0 && message.length()>0)                
 	                    sendSMS(phoneNo, message);                
 	                else

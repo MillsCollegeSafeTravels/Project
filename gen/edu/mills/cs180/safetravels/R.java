@@ -45,9 +45,8 @@ public final class R {
         public static final int main=0x7f030003;
         public static final int mapview=0x7f030004;
         public static final int routepage=0x7f030005;
-        public static final int senddangertxt=0x7f030006;
-        public static final int sendtxt=0x7f030007;
-        public static final int testpage=0x7f030008;
+        public static final int sendtxt=0x7f030006;
+        public static final int testpage=0x7f030007;
     }
     public static final class string {
         public static final int MapAPIKey=0x7f04000c;

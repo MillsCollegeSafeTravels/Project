@@ -35,7 +35,7 @@ public class SendMadeItTextMessage extends Activity {
 	                if (phoneNo.length()>0 && message.length()>0)                
 	                    sendSMS(phoneNo, message);                
 	                else
-	                	//taken out for alpha presentation
+	                	//remove for alpha
 	                    /*Toast.makeText(getBaseContext(), 
 	                        "Please enter both phone number and message.", 
 	                        Toast.LENGTH_SHORT).show();*/

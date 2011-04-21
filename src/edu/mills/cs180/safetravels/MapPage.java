@@ -86,7 +86,7 @@ public class MapPage extends MapActivity implements OnClickListener {
 			finish();
 			break;
 		case R.id.danger_button:
-			startActivity(new Intent(this, SendTextMessage.class));
+			startActivity(new Intent(this, SendTextMessageDanger.class));
 			break;
 		}
 	}
