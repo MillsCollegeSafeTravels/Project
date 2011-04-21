@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class SendTextMessageDanger extends Activity {
+public class SendMadeItTextMessage extends Activity {
 	    Button btnSendSMS;
 	    EditText txtPhoneNo;
 	    EditText txtMessage;
@@ -31,13 +31,15 @@ public class SendTextMessageDanger extends Activity {
 	            public void onClick(View v) 
 	            {                
 	                String phoneNo = txtPhoneNo.getText().toString();
-	                String message = getString(R.string.danger_message);                 
+	                String message = txtMessage.getText().toString();                 
 	                if (phoneNo.length()>0 && message.length()>0)                
 	                    sendSMS(phoneNo, message);                
 	                else
-	                    Toast.makeText(getBaseContext(), 
+	                	//taken out for alpha presentation
+	                    /*Toast.makeText(getBaseContext(), 
 	                        "Please enter both phone number and message.", 
-	                        Toast.LENGTH_SHORT).show();
+	                        Toast.LENGTH_SHORT).show();*/
+	                	finish();
 	            }
 	        });        
 	    }  
@@ -45,7 +47,7 @@ public class SendTextMessageDanger extends Activity {
 	    private void sendSMS(String phoneNumber, String message)
 	    {        
 	        PendingIntent pi = PendingIntent.getActivity(this, 0,
-	            new Intent(this, SendTextMessageDanger.class), 0);                
+	            new Intent(this, SendMadeItTextMessage.class), 0);                
 	        SmsManager sms = SmsManager.getDefault();
 	        sms.sendTextMessage(phoneNumber, null, message, pi, null);        
 	    }  

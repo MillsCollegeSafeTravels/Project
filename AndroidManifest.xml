@@ -26,6 +26,8 @@
 					android:theme="@android:style/Theme.NoTitleBar"/>
 		<activity android:name=".LocationFinder" />
 		<activity android:name=".SendTextMessage" />
+		<activity android:name=".SendMadeItTextMessage" />
+		<activity android:name=".SendTextMessageDanger" />
 		<activity android:name=".TestPage"
 			android:theme="@android:style/Theme.NoTitleBar"/>
 		<activity android:name=".MapPage" 
