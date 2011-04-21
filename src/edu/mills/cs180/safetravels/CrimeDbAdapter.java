@@ -19,7 +19,6 @@ public class CrimeDbAdapter {
 	public static final String DATE = "date";
 	public static final String LATITUDE = "latitude";
 	public static final String LONGITUDE = "longitude";
-	public static final String COUNT = "count";
 	
 	private static final String TAG = "CrimeDbAdapter";
     private DatabaseHelper mDbHelper;
@@ -29,9 +28,10 @@ public class CrimeDbAdapter {
      * Database creation sql statement
      */
     private static final String CRIMES_CREATE =
-        "create table crimes (_id integer primary key autoincrement, "
-        + "type text not null, desc text not null, date text not null, "
-        + "lat real not null, long real not null);";
+        "CREATE TABLE crimes (" +ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+        + TYPE + " TEXT NOT NULL, " + DESCRIPTION + " TEXT, "
+        + DATE + " TEXT NOT NULL, " + LATITUDE + " DOUBLE NOT NULL, "
+        + LONGITUDE + " DOUBLE NOT NULL);";
 
     private static final String DATABASE_NAME = "crimedata";
     private static final String DATABASE_TABLE = "crimes";
@@ -75,6 +75,9 @@ public class CrimeDbAdapter {
      * 
      * @param type the type of the crime
      * @param description the description of the crime
+     * @param date the date of the crime
+     * @param latitude the latitude of the crime
+     * @param longus the longitude of the crime
      * @return rowId or -1 if failed
      */
     public long createCrime(String type, String description, String date,
@@ -102,21 +105,22 @@ public class CrimeDbAdapter {
     /**
      * Delete all crimes in the table
      */
-    public boolean deleteAllCrimes() {
+    public boolean deleteAll() {
         return mDb.delete(DATABASE_TABLE, null, null) > 0;
     }//deleteCrime
     
+    //TODO: check if really need this method since can use cursor's method
     /**
      * Count the number of rows with the given type
      * 
      * @param type type of the crimes to count
      * @return int count of crimes
-     */
+     *//*
     public Cursor countByType(String type) {
     	String queryCount = "select count(*) from " + DATABASE_TABLE
     		+ " where " + TYPE + "=" + type + ";";
     	return mDb.rawQuery(queryCount, null);
-    }
+    }*/
     
     /**
      * Return a Cursor over the list of all crimes in the database
@@ -124,7 +128,7 @@ public class CrimeDbAdapter {
      * 
      * @return Cursor over all crimes
      */
-    public Cursor fetchAllCrimesAllInfo() {
+    public Cursor fetchAllInfo() {
         return mDb.query(DATABASE_TABLE, new String[] {ID, TYPE,
                 DESCRIPTION, DATE, LATITUDE, LONGITUDE}, null, 
                 null, null, null, null);
@@ -136,7 +140,7 @@ public class CrimeDbAdapter {
      * 
      * @return Cursor over all crimes
      */
-    public Cursor fetchAllCrimesType() {
+    public Cursor fetchAllType() {
         return mDb.query(DATABASE_TABLE, new String[] {ID, TYPE}, null, 
                 null, null, null, null);
     }//fetchAllCrimesType
@@ -147,9 +151,9 @@ public class CrimeDbAdapter {
      * 
      * @return Cursor over all crimes
      */
-    public Cursor fetchAllCrimesTypeLatLong() {
-        return mDb.query(DATABASE_TABLE, new String[] {ID, TYPE, LATITUDE, LONGITUDE}, null, 
-                null, null, null, null);
+    public Cursor fetchAllTypeLatLong() {
+        return mDb.query(DATABASE_TABLE, new String[] {ID, TYPE, 
+        		LATITUDE, LONGITUDE}, null, null, null, null, null);
     }//fetchAllCrimesTypeLatLong
     
     
@@ -161,7 +165,7 @@ public class CrimeDbAdapter {
      * @return Cursor positioned to matching crime, if found
      * @throws SQLException if crime could not be found/retrieved
      */
-    public Cursor fetchCrimesByType(String type) throws SQLException {
+    public Cursor fetchByType(String type) throws SQLException {
         Cursor mCursor =
             mDb.query(true, DATABASE_TABLE, new String[] {ID, 
             		DESCRIPTION, DATE, LATITUDE, LONGITUDE}, TYPE 
