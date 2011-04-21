@@ -19,6 +19,7 @@
 			android:theme="@android:style/Theme.NoTitleBar" />
 		<activity android:name=".LocationFinder" />
 		<activity android:name=".SendTextMessage" />
+
 		<activity android:name=".TestPage" android:theme="@android:style/Theme.NoTitleBar" />
 		<activity android:name=".MapPage" android:theme="@android:style/Theme.NoTitleBar" />
 		<activity android:name=".CrimesListActivity" android:label="@string/app_name">
@@ -28,6 +29,14 @@
 			</intent-filter>
 		</activity>
 		<uses-library android:name="com.google.android.maps" />
+		<uses-sdk android:minSdkVersion="3" />
+
+		<activity android:name=".SendMadeItTextMessage" />
+		<activity android:name=".SendTextMessageDanger" />
+		<activity android:name=".TestPage" android:theme="@android:style/Theme.NoTitleBar" />
+		<activity android:name=".MapPage" android:theme="@android:style/Theme.NoTitleBar" />
+		<uses-library android:name="com.google.android.maps" />
 	</application>
 	<uses-sdk android:minSdkVersion="3" />
+
 </manifest> 
