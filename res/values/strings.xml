@@ -31,4 +31,5 @@
     	<item>Burglary</item>
     	<item>Arson</item>
     </string-array>
+    <string name="menu_see_on_map">See On Map</string>
 </resources>

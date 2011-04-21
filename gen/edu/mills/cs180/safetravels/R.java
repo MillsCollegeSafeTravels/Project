@@ -24,20 +24,19 @@ public final class R {
         public static final int safe_travels_logo=0x7f020007;
     }
     public static final class id {
-        public static final int btnSendSMS=0x7f06000d;
-        public static final int danger_button=0x7f060008;
-        public static final int frame=0x7f060005;
-        public static final int logo_view=0x7f060002;
-        public static final int made_it_button=0x7f060009;
-        public static final int map=0x7f060006;
-        public static final int output=0x7f060001;
-        public static final int route_button=0x7f060004;
-        public static final int send_to_friend_button=0x7f060007;
-        public static final int text1=0x7f060000;
-        public static final int track_button=0x7f060003;
-        public static final int track_this_route_button=0x7f06000a;
-        public static final int txtMessage=0x7f06000c;
-        public static final int txtPhoneNo=0x7f06000b;
+        public static final int btnSendSMS=0x7f06000c;
+        public static final int danger_button=0x7f060007;
+        public static final int frame=0x7f060004;
+        public static final int logo_view=0x7f060001;
+        public static final int made_it_button=0x7f060008;
+        public static final int map=0x7f060005;
+        public static final int output=0x7f060000;
+        public static final int route_button=0x7f060003;
+        public static final int send_to_friend_button=0x7f060006;
+        public static final int track_button=0x7f060002;
+        public static final int track_this_route_button=0x7f060009;
+        public static final int txtMessage=0x7f06000b;
+        public static final int txtPhoneNo=0x7f06000a;
     }
     public static final class layout {
         public static final int crime_row=0x7f030000;
@@ -59,6 +58,7 @@ public final class R {
         public static final int hello=0x7f040000;
         public static final int made_it_label=0x7f040004;
         public static final int made_it_text_message=0x7f04000d;
+        public static final int menu_see_on_map=0x7f040010;
         public static final int message_label=0x7f04000a;
         public static final int no_info=0x7f04000f;
         public static final int route_label=0x7f040003;

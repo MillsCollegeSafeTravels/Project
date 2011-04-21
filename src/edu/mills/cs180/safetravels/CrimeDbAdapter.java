@@ -92,7 +92,7 @@ public class CrimeDbAdapter {
     /**
      * Delete the crime with the given rowId
      * 
-     * @param rowId id of note to delete
+     * @param rowId id of crime to delete
      * @return true if deleted, false otherwise
      */
     public boolean deleteCrime(long rowId) {
@@ -100,33 +100,77 @@ public class CrimeDbAdapter {
     }//deleteCrime
     
     /**
-     * Return a Cursor over the list of all crimes in the database
-     * 
-     * @return Cursor over all notes
+     * Delete all crimes in the table
      */
-    public Cursor fetchAllCrimes() {
+    public boolean deleteAllCrimes() {
+        return mDb.delete(DATABASE_TABLE, null, null) > 0;
+    }//deleteCrime
+    
+    /**
+     * Count the number of rows with the given type
+     * 
+     * @param type type of the crimes to count
+     * @return int count of crimes
+     */
+    public Cursor countByType(String type) {
+    	String queryCount = "select count(*) from " + DATABASE_TABLE
+    		+ " where " + TYPE + "=" + type + ";";
+    	return mDb.rawQuery(queryCount, null);
+    }
+    
+    /**
+     * Return a Cursor over the list of all crimes in the database
+     * with all information
+     * 
+     * @return Cursor over all crimes
+     */
+    public Cursor fetchAllCrimesAllInfo() {
         return mDb.query(DATABASE_TABLE, new String[] {ID, TYPE,
                 DESCRIPTION, DATE, LATITUDE, LONGITUDE}, null, 
                 null, null, null, null);
     }//fetchAllCrimes
     
     /**
-     * Return a Cursor positioned at the crime that matches the given rowId
+     * Return a Cursor over the list of all crimes in the database
+     * with only id and type information
      * 
-     * @param rowId id of crime to retrieve
+     * @return Cursor over all crimes
+     */
+    public Cursor fetchAllCrimesType() {
+        return mDb.query(DATABASE_TABLE, new String[] {ID, TYPE}, null, 
+                null, null, null, null);
+    }//fetchAllCrimesType
+    
+    /**
+     * Return a Cursor over the list of all crimes in the database
+     * with only id, type,latitude, and longitude information
+     * 
+     * @return Cursor over all crimes
+     */
+    public Cursor fetchAllCrimesTypeLatLong() {
+        return mDb.query(DATABASE_TABLE, new String[] {ID, TYPE, LATITUDE, LONGITUDE}, null, 
+                null, null, null, null);
+    }//fetchAllCrimesTypeLatLong
+    
+    
+    
+    /**
+     * Return a Cursor positioned at the crimes that matches the given type
+     * 
+     * @param type type of crime to retrieve
      * @return Cursor positioned to matching crime, if found
      * @throws SQLException if crime could not be found/retrieved
      */
-    public Cursor fetchCrime(long rowId) throws SQLException {
+    public Cursor fetchCrimesByType(String type) throws SQLException {
         Cursor mCursor =
-            mDb.query(true, DATABASE_TABLE, new String[] {ID,
-                    TYPE, DESCRIPTION, DATE, LATITUDE, LONGITUDE}, 
-                    ID + "=" + rowId, null, null, null, null, null);
+            mDb.query(true, DATABASE_TABLE, new String[] {ID, 
+            		DESCRIPTION, DATE, LATITUDE, LONGITUDE}, TYPE 
+            		+ "=" + type, null, null, null, null, null);
         if (mCursor != null) {
             mCursor.moveToFirst();
         }
         return mCursor;
-    }//fetchCrime
+    }//fetchCrimesByType
     
     /**
      * Update the crime using the details provided. The crime to be updated is
