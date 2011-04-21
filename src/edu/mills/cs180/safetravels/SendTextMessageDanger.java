@@ -3,9 +3,11 @@ package edu.mills.cs180.safetravels;
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.graphics.PixelFormat;
 import android.os.Bundle;
 import android.telephony.SmsManager;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -41,6 +43,15 @@ public class SendTextMessageDanger extends Activity {
 	            }
 	        });        
 	    }  
+	    
+	    @Override
+	    public void onAttachedToWindow() {
+	        super.onAttachedToWindow();
+	        Window window = getWindow();
+	        // Eliminates color banding
+	        window.setFormat(PixelFormat.RGBA_8888);
+	    }
+	    
 	    //---sends an SMS message to another device---
 	    private void sendSMS(String phoneNumber, String message)
 	    {        

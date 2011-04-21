@@ -1,8 +1,10 @@
 package edu.mills.cs180.safetravels;
 
 import android.content.Intent;
+import android.graphics.PixelFormat;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.view.View.OnClickListener;
 
 import com.google.android.maps.MapActivity;
@@ -28,6 +30,14 @@ public class RoutePage extends MapActivity implements OnClickListener{
         View TrackThisRouteButton = findViewById(R.id.track_this_route_button);
         TrackThisRouteButton.setOnClickListener(this);
 	}
+	
+	 @Override
+	    public void onAttachedToWindow() {
+	        super.onAttachedToWindow();
+	        Window window = getWindow();
+	        // Eliminates color banding
+	        window.setFormat(PixelFormat.RGBA_8888);
+	    }
 
 	/** Find and initialize the map view. */
 	private void initMapView() {
