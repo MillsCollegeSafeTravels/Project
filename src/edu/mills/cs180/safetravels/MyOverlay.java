@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Point;
+import android.location.Location;
 
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapView;
@@ -23,6 +24,12 @@ public class MyOverlay extends MyLocationOverlay{
     public MyOverlay(android.content.Context context,MapView mapView){
     	super(context, mapView);
         projection = mapView.getProjection();
+    }
+    @Override
+    public void onLocationChanged(Location location){
+    	super.onLocationChanged(location);
+    	
+    	
     }
     @Override 
     public void draw(Canvas canvas, MapView mapView, boolean shadow){
