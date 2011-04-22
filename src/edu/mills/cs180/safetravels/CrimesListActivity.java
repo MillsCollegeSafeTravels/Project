@@ -1,7 +1,5 @@
 package edu.mills.cs180.safetravels;
 
-import java.util.Random;
-
 import android.app.ListActivity;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -16,8 +14,8 @@ import android.widget.Toast;
 
 public class CrimesListActivity extends ListActivity {
 	public static final int SHOW_MAP_ID = Menu.FIRST;
-	
-	private static final int END = 25; //for demo purposes
+
+	//private static final int END = 25; //for demo purposes
 
 	private CrimeDbAdapter mDbHelper;
 
@@ -26,6 +24,8 @@ public class CrimesListActivity extends ListActivity {
 	private CharSequence defaultMenuMsg = "Will take to map view with crimes "
 		+ "shown.";
 
+	String[] crimesAndCount;
+
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -33,12 +33,13 @@ public class CrimesListActivity extends ListActivity {
 
 		mDbHelper = new CrimeDbAdapter(this);
 		mDbHelper.open();
+
 		//TODO: replace below method with method to populate with real data
 		//enterTestingData(mDbHelper);
-		
+
 		String[] crimeNames = getResources().getStringArray(R.array.crimes_array);
-		String[] crimesAndCount = addCounts(crimeNames);
-		
+		addCounts(crimeNames);
+
 		setListAdapter(new ArrayAdapter<String>(this, R.layout.crime_row, crimesAndCount));
 
 		ListView lv = getListView();
@@ -77,28 +78,23 @@ public class CrimesListActivity extends ListActivity {
 				Toast.LENGTH_SHORT).show();
 	}
 
-	private String[] addCounts(String[] theCrimeNames) {
-		/*TODO:put back in
-		 * int j;
-		 * for(int i=0;i<crimes.length;i++){
-            Cursor c = mDbHelper.fetchByType(crimes[i]);
-            c.moveToFirst();
-            j = c.getCount();
-            c.close();
-            crimesAndCount[i] = crimes[i] + "(" + j +")";
-    	}*/
+	private void addCounts(String[] theCrimeNames) {
+		int j;
+		for(int i=0;i<theCrimeNames.length;i++){
+			Cursor c = mDbHelper.fetchByType(theCrimeNames[i]);
+			c.moveToFirst();
+			j = c.getCount();
+			c.close();
+			crimesAndCount[i] = theCrimeNames[i] + "(" + j +")";
+		}
 		
-		//for demo purposes
+		/*//for demo purposes
 		String[] temp = new String[CrimeData.CRIME_NUMBER];
 		Random random = new Random();
 		for(int i=0;i<CrimeData.CRIME_NUMBER;i++){
 			temp[i] = theCrimeNames[i] + " (" + random.nextInt(END) + ")";
 		}
-		return temp;
-	}
-
-	private void enterTestingData(CrimeDbAdapter adapter) {
-		CrimeData.enterTestData(adapter);
+		return temp;*/
 	}
 
 }//CrimesListActivity

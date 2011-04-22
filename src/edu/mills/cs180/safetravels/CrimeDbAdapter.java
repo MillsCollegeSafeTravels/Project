@@ -14,9 +14,11 @@ public class CrimeDbAdapter {
 
 	//Columns in Crimes database
 	public static final String ID = "_id";
-	public static final String TYPE = "type";
 	public static final String DESCRIPTION = "description";
-	public static final String DATE = "date";
+	public static final String DATE_TIME = "date, time";
+	public static final String CRIME_TYPE = "crime type";
+	public static final String POLICE_BEAT = "police beat";
+	public static final String ADDRESS = "address";
 	public static final String LATITUDE = "latitude";
 	public static final String LONGITUDE = "longitude";
 	
@@ -24,18 +26,22 @@ public class CrimeDbAdapter {
     private DatabaseHelper mDbHelper;
     private SQLiteDatabase mDb;
 	
-	/**
+	/**TODO: add columns so all data returned can be entered into database
      * Database creation sql statement
      */
     private static final String CRIMES_CREATE =
-        "CREATE TABLE crimes (" +ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-        + TYPE + " TEXT NOT NULL, " + DESCRIPTION + " TEXT, "
-        + DATE + " TEXT NOT NULL, " + LATITUDE + " DOUBLE NOT NULL, "
-        + LONGITUDE + " DOUBLE NOT NULL);";
+        "create table crimes (" +ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+        						DESCRIPTION + " text not null, " + 
+        						DATE_TIME + " text not null, " + 
+        						CRIME_TYPE + " text not null," +
+        						POLICE_BEAT + " text," +
+        						ADDRESS + " text," +
+        						LATITUDE + " DOUBLE NOT NULL, "+ 
+        						LONGITUDE + " DOUBLE NOT NULL);";
 
     private static final String DATABASE_NAME = "crimedata";
     private static final String DATABASE_TABLE = "crimes";
-    private static final int DATABASE_VERSION = 1;
+    private static int DATABASE_VERSION = 1;
 
     private final Context mCtx;
     
@@ -80,12 +86,15 @@ public class CrimeDbAdapter {
      * @param longus the longitude of the crime
      * @return rowId or -1 if failed
      */
-    public long createCrime(String type, String description, String date,
-    		double latitude, double longitude) {
+    public long createCrime(String description, String dateTime, String crimeType, 
+    		String policeBeat, String address, double latitude, 
+    		double longitude) {
         ContentValues initialValues = new ContentValues();
-        initialValues.put(TYPE, type);
         initialValues.put(DESCRIPTION, description);
-        initialValues.put(DATE, date);
+        initialValues.put(DATE_TIME, dateTime);
+        initialValues.put(CRIME_TYPE, crimeType);
+        initialValues.put(POLICE_BEAT, policeBeat);
+        initialValues.put(ADDRESS, address);
         initialValues.put(LATITUDE, latitude);
         initialValues.put(LONGITUDE, longitude);
 
@@ -129,8 +138,7 @@ public class CrimeDbAdapter {
      * @return Cursor over all crimes
      */
     public Cursor fetchAllInfo() {
-        return mDb.query(DATABASE_TABLE, new String[] {ID, TYPE,
-                DESCRIPTION, DATE, LATITUDE, LONGITUDE}, null, 
+        return mDb.query(DATABASE_TABLE, null, null, 
                 null, null, null, null);
     }//fetchAllCrimes
     
@@ -141,22 +149,21 @@ public class CrimeDbAdapter {
      * @return Cursor over all crimes
      */
     public Cursor fetchAllType() {
-        return mDb.query(DATABASE_TABLE, new String[] {ID, TYPE}, null, 
-                null, null, null, null);
+        return mDb.query(DATABASE_TABLE, new String[] {ID,CRIME_TYPE}, 
+        		null, null, null, null, null);
     }//fetchAllCrimesType
     
     /**
      * Return a Cursor over the list of all crimes in the database
-     * with only id, type,latitude, and longitude information
+     * with only id, description, type,latitude, and longitude information
      * 
      * @return Cursor over all crimes
      */
-    public Cursor fetchAllTypeLatLong() {
-        return mDb.query(DATABASE_TABLE, new String[] {ID, TYPE, 
-        		LATITUDE, LONGITUDE}, null, null, null, null, null);
+    public Cursor fetchAllDescTypeLatLong() {
+        return mDb.query(DATABASE_TABLE, new String[] {ID, DESCRIPTION,
+        		CRIME_TYPE, LATITUDE, LONGITUDE}, null, null, null, 
+        		null, null);
     }//fetchAllCrimesTypeLatLong
-    
-    
     
     /**
      * Return a Cursor positioned at the crimes that matches the given type
@@ -165,14 +172,12 @@ public class CrimeDbAdapter {
      * @return Cursor positioned to matching crime, if found
      * @throws SQLException if crime could not be found/retrieved
      */
-    public Cursor fetchByType(String type) throws SQLException {
+    public Cursor fetchByType(String crimeType) throws SQLException {
         Cursor mCursor =
             mDb.query(true, DATABASE_TABLE, new String[] {ID, 
-            		DESCRIPTION, DATE, LATITUDE, LONGITUDE}, TYPE 
-            		+ "=" + type, null, null, null, null, null);
-        if (mCursor != null) {
-            mCursor.moveToFirst();
-        }
+            		DESCRIPTION, DATE_TIME, LATITUDE, LONGITUDE}, 
+            		CRIME_TYPE + "=" + crimeType, null, null, null, 
+            		null, null);
         return mCursor;
     }//fetchCrimesByType
     
@@ -189,12 +194,15 @@ public class CrimeDbAdapter {
      * @param longitude value to set crime longitude to
      * @return true if the crime was successfully updated, false otherwise
      */
-    public boolean updateCrime(long rowId, String type, String description,
-    		String date, double latitude, double longitude) {
+    public boolean updateCrime(long rowId,  String description, String dateTime,
+    		String crimeType, String policeBeat, String address, 
+    		double latitude, double longitude) {
         ContentValues args = new ContentValues();
-        args.put(TYPE, type);
         args.put(DESCRIPTION, description);
-        args.put(DATE, date);
+        args.put(DATE_TIME, dateTime);
+        args.put(CRIME_TYPE, crimeType);
+        args.put(POLICE_BEAT, policeBeat);
+        args.put(ADDRESS, address);
         args.put(LATITUDE, latitude);
         args.put(LONGITUDE, longitude);
         
