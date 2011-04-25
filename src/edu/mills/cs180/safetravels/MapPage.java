@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 
-import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
 import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
@@ -21,7 +20,6 @@ public class MapPage extends MapActivity implements OnClickListener {
 	private MapView map;
 	private MapController controller;
 	private MyOverlay overlay;
-	protected GeoPoint geoPoint;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -60,8 +58,7 @@ public class MapPage extends MapActivity implements OnClickListener {
 				// Zoom in to current location
 				controller.setZoom(16);
 				//get location
-				geoPoint = overlay.getMyLocation();
-				controller.animateTo(geoPoint);		
+				controller.animateTo(overlay.getMyLocation());		
 			}
 		});
 		map.getOverlays().add(overlay);
@@ -72,19 +69,24 @@ public class MapPage extends MapActivity implements OnClickListener {
 		// Required by MapActivity
 		return false;
 	}
+	//Listeners 
 	
+	//OnClick
 	@Override
 	public void onClick(View v){
 		switch(v.getId()){
+		//Send to a friend button
 		case R.id.send_to_friend_button:
 			startActivity(new Intent(this, SendTextMessage.class));
 			break;
+		//made it button
 		case R.id.made_it_button:
 			overlay.disableMyLocation();
 			overlay.disableCompass();
 			startActivity(new Intent(this, SendMadeItTextMessage.class));
 			finish();
 			break;
+		//danger button
 		case R.id.danger_button:
 			startActivity(new Intent(this, SendTextMessageDanger.class));
 			break;

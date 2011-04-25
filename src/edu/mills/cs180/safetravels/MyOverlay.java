@@ -51,7 +51,7 @@ public class MyOverlay extends MyLocationOverlay{
             see documentation: http://code.google.com/android/add-ons/ ... Point.html
         */
         
-        currentGeoPoint = getMyLocation();
+/*        currentGeoPoint = getMyLocation();
         lastGeoPoint=mapPage.geoPoint;
         
         projection.toPixels(lastGeoPoint, point1);
@@ -62,7 +62,7 @@ public class MyOverlay extends MyLocationOverlay{
        
         canvas.drawPath(path, paint);
         
-        mapPage.geoPoint=currentGeoPoint;
+        mapPage.geoPoint=currentGeoPoint;*/
     }
 
 }
