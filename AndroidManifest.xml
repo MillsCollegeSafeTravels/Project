@@ -33,6 +33,7 @@
 		<activity android:name=".MapPage" 
 			android:theme="@android:style/Theme.NoTitleBar" />
 		<activity android:name=".CrimesListActivity"/>
+		<activity android:name=".MyItemizedOverlay"/>
 		<uses-library android:name="com.google.android.maps" />
 	</application>
 	<uses-sdk android:minSdkVersion="3" />

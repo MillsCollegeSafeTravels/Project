@@ -73,7 +73,6 @@ public class SendMadeItTextMessage extends Activity implements OnLongClickListen
 				cursor.moveToNext();
 				String contactId = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts._ID));
 				String  name = cursor.getString(cursor.getColumnIndexOrThrow(ContactsContract.Contacts.DISPLAY_NAME)); 
-
 				Toast.makeText(this, "Contect LIST  =  "+name, Toast.LENGTH_LONG).show(); 
 			}
 		}//onActivityResult

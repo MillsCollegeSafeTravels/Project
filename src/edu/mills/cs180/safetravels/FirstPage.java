@@ -16,8 +16,8 @@ public class FirstPage extends Activity implements OnClickListener {
         setContentView(R.layout.main);
         
         //set up click listeners
-        View TrackButton = findViewById(R.id.track_button);
-        TrackButton.setOnClickListener(this);
+        View trackButton = findViewById(R.id.track_button);
+        trackButton.setOnClickListener(this);
         View SafeRouteButton = findViewById(R.id.route_button);
         SafeRouteButton.setOnClickListener(this);
     }
