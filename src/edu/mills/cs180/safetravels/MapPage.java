@@ -132,7 +132,6 @@ public class MapPage extends MapActivity implements OnClickListener {
 		// Required by MapActivity
 		return false;
 	}
-
 /*	public class MyOverlay extends Overlay{
 
 	    @Override 
@@ -158,7 +157,7 @@ public class MapPage extends MapActivity implements OnClickListener {
 			//overlay.disableMyLocation();
 			//overlay.disableCompass();
 			startActivity(new Intent(this, SendMadeItTextMessage.class));
-			//finish();
+			finish();
 			break;
 		//danger button
 		case R.id.danger_button:
