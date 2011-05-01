@@ -36,9 +36,9 @@ public class MapPage extends MapActivity implements OnClickListener {
 	
 	private static final long LOCATION_UPDATE_MIN_DISTANCE = 1;
 	private static final long LOCATION_UPDATE_INTERVAL = 1000;
-	protected LocationManager locationManager;
+	public static LocationManager locationManager;
 	private GeoPoint currentGeoPoint;
-	private MyLocationListener listener;
+	static MyLocationListener listener;
 	
 	List<Overlay> mapOverlays;
 	private MyItemizedOverlay itemizedOverlay;
@@ -100,8 +100,6 @@ public class MapPage extends MapActivity implements OnClickListener {
 			OverlayItem overLayitem = new OverlayItem(currentGeoPoint, null, null);
 			itemizedOverlay.addOverlay(overLayitem);
 			mapOverlays.add(itemizedOverlay);
-			
-			
 		}
 	}
 	
@@ -145,8 +143,6 @@ public class MapPage extends MapActivity implements OnClickListener {
 	        canvas.drawPoint(screenPts.x, screenPts.y, paint);
 			return true;
 	    }*/
-
-
 	//}
     
 	//OnClick
@@ -162,7 +158,7 @@ public class MapPage extends MapActivity implements OnClickListener {
 			//overlay.disableMyLocation();
 			//overlay.disableCompass();
 			startActivity(new Intent(this, SendMadeItTextMessage.class));
-			finish();
+			//finish();
 			break;
 		//danger button
 		case R.id.danger_button:
