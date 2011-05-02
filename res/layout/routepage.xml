@@ -26,6 +26,6 @@
 				android:textSize="18sp"
 				android:typeface="sans"
 				android:layout_gravity="center"
-				android:background="@drawable/littlebutton"/>
+				android:background="@drawable/mainbutton"/>
 	</LinearLayout>
 </LinearLayout>

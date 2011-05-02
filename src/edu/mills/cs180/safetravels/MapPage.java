@@ -7,25 +7,14 @@ import java.util.List;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Point;
+import android.graphics.*;
 import android.graphics.drawable.Drawable;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
+import android.location.*;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 
-import com.google.android.maps.GeoPoint;
-import com.google.android.maps.MapActivity;
-import com.google.android.maps.MapController;
-import com.google.android.maps.MapView;
-import com.google.android.maps.Overlay;
-import com.google.android.maps.OverlayItem;
-
+import com.google.android.maps.*;
 /**
  * @author KateFeeney
  *
@@ -36,9 +25,9 @@ public class MapPage extends MapActivity implements OnClickListener {
 	
 	private static final long LOCATION_UPDATE_MIN_DISTANCE = 1;
 	private static final long LOCATION_UPDATE_INTERVAL = 1000;
-	protected LocationManager locationManager;
+	protected static LocationManager locationManager;
 	private GeoPoint currentGeoPoint;
-	private MyLocationListener listener;
+	static MyLocationListener listener;
 	
 	List<Overlay> mapOverlays;
 	private MyItemizedOverlay itemizedOverlay;
@@ -170,6 +159,4 @@ public class MapPage extends MapActivity implements OnClickListener {
 			break;
 		}
 	}
-
-
 }

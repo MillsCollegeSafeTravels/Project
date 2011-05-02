@@ -15,14 +15,14 @@ public final class R {
     }
     public static final class drawable {
         public static final int background=0x7f020000;
-        public static final int button=0x7f020001;
+        public static final int dangerbutton=0x7f020001;
         public static final int icon=0x7f020002;
         public static final int icon28=0x7f020003;
         public static final int icon57=0x7f020004;
-        public static final int littlebutton=0x7f020005;
-        public static final int madeitbutton=0x7f020006;
-        public static final int main_logo=0x7f020007;
-        public static final int main_name=0x7f020008;
+        public static final int madebutton=0x7f020005;
+        public static final int main_logo=0x7f020006;
+        public static final int main_name=0x7f020007;
+        public static final int mainbutton=0x7f020008;
         public static final int safe_travels_logo=0x7f020009;
     }
     public static final class id {
@@ -35,6 +35,8 @@ public final class R {
         public static final int output=0x7f060000;
         public static final int route_button=0x7f060003;
         public static final int send_to_friend_button=0x7f060006;
+        public static final int stop_track_no_button=0x7f06000e;
+        public static final int stop_track_yes_button=0x7f06000d;
         public static final int track_button=0x7f060002;
         public static final int track_this_route_button=0x7f060009;
         public static final int txtMessage=0x7f06000b;
@@ -47,8 +49,10 @@ public final class R {
         public static final int main=0x7f030003;
         public static final int mapview=0x7f030004;
         public static final int routepage=0x7f030005;
-        public static final int sendtxt=0x7f030006;
-        public static final int testpage=0x7f030007;
+        public static final int sendmadeittxt=0x7f030006;
+        public static final int sendtxt=0x7f030007;
+        public static final int stoptracking=0x7f030008;
+        public static final int testpage=0x7f030009;
     }
     public static final class string {
         public static final int MapAPIKey=0x7f04000c;
