@@ -35,6 +35,8 @@ public final class R {
         public static final int output=0x7f060000;
         public static final int route_button=0x7f060003;
         public static final int send_to_friend_button=0x7f060006;
+        public static final int stop_track_no_button=0x7f06000e;
+        public static final int stop_track_yes_button=0x7f06000d;
         public static final int track_button=0x7f060002;
         public static final int track_this_route_button=0x7f060009;
         public static final int txtMessage=0x7f06000b;
@@ -47,26 +49,29 @@ public final class R {
         public static final int main=0x7f030003;
         public static final int mapview=0x7f030004;
         public static final int routepage=0x7f030005;
-        public static final int sendtxt=0x7f030006;
-        public static final int testpage=0x7f030007;
+        public static final int sendmadeittxt=0x7f030006;
+        public static final int sendtxt=0x7f030007;
+        public static final int stoptracking=0x7f030008;
+        public static final int testpage=0x7f030009;
     }
     public static final class string {
-        public static final int MapAPIKey=0x7f04000c;
+        public static final int MapAPIKey=0x7f04000d;
         public static final int app_name=0x7f040001;
         public static final int danger_label=0x7f040006;
-        public static final int danger_message=0x7f040007;
-        public static final int fingerprint=0x7f04000e;
-        public static final int get_text_message_number=0x7f040009;
+        public static final int danger_message=0x7f040008;
+        public static final int fingerprint=0x7f04000f;
+        public static final int get_text_message_number=0x7f04000a;
         public static final int hello=0x7f040000;
         public static final int made_it_label=0x7f040004;
-        public static final int made_it_text_message=0x7f04000d;
-        public static final int menu_see_on_map=0x7f040010;
-        public static final int message_label=0x7f04000a;
-        public static final int no_info=0x7f04000f;
+        public static final int made_it_text_message=0x7f04000e;
+        public static final int menu_see_on_map=0x7f040011;
+        public static final int message_label=0x7f04000b;
+        public static final int no_info=0x7f040010;
         public static final int route_label=0x7f040003;
-        public static final int send_text_message_label=0x7f04000b;
+        public static final int send_text_message_label=0x7f04000c;
         public static final int send_to_friend_label=0x7f040005;
         public static final int track_label=0x7f040002;
-        public static final int track_this_route_label=0x7f040008;
+        public static final int track_me_message=0x7f040007;
+        public static final int track_this_route_label=0x7f040009;
     }
 }

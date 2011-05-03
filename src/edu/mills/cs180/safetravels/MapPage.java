@@ -7,10 +7,8 @@ import java.util.List;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Point;
 import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.location.LocationListener;
@@ -89,10 +87,11 @@ public class MapPage extends MapActivity implements OnClickListener {
 		mapOverlays = map.getOverlays(); 
 		drawable = this.getResources().getDrawable(R.drawable.icon57);
 		itemizedOverlay = new MyItemizedOverlay(drawable);
-		showCurrentLocation();
-	}
-	protected void showCurrentLocation(){
 		Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+		showCurrentLocation(location);
+	}
+	protected void showCurrentLocation(Location location){
+		//Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 		if(location!=null){
 			currentGeoPoint=new GeoPoint((int)(location.getLatitude()*1e6),(int)(location.getLongitude()*1e6));
 			controller.setZoom(20);
@@ -105,7 +104,7 @@ public class MapPage extends MapActivity implements OnClickListener {
 	
 	private class MyLocationListener implements LocationListener{
 		public void onLocationChanged(Location location){
-			showCurrentLocation();
+			showCurrentLocation(location);
 		}
 
 		@Override
@@ -150,7 +149,7 @@ public class MapPage extends MapActivity implements OnClickListener {
 		switch(v.getId()){
 		//Send to a friend button
 		case R.id.send_to_friend_button:
-			startActivity(new Intent(this, SendTextMessage.class));
+			startActivity(new Intent(this, SendFriendTextMessage.class));
 			break;
 		//made it button
 		case R.id.made_it_button:

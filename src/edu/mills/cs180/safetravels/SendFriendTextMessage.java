@@ -18,7 +18,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class SendTextMessage extends Activity implements OnLongClickListener {
+public class SendFriendTextMessage extends Activity implements OnLongClickListener {
 	Button btnSendSMS;
 	EditText txtPhoneNo;
 	EditText txtMessage;
@@ -70,7 +70,7 @@ public class SendTextMessage extends Activity implements OnLongClickListener {
 	private void sendSMS(String phoneNumber, String message)
 	{        
 		PendingIntent pi = PendingIntent.getActivity(this, 0,
-				new Intent(this, SendTextMessage.class), 0);                
+				new Intent(this, SendFriendTextMessage.class), 0);                
 		SmsManager sms = SmsManager.getDefault();
 		sms.sendTextMessage(phoneNumber, null, message, pi, null);        
 	}
