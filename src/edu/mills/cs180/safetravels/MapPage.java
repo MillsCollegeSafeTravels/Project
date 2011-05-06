@@ -3,13 +3,14 @@
  */
 package edu.mills.cs180.safetravels;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -22,7 +23,6 @@ import com.google.android.maps.MapActivity;
 import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
 import com.google.android.maps.Overlay;
-import com.google.android.maps.OverlayItem;
 
 /**
  * @author KateFeeney
@@ -32,15 +32,16 @@ public class MapPage extends MapActivity implements OnClickListener {
 	private MapView map;
 	private MapController controller;
 	
-	private static final long LOCATION_UPDATE_MIN_DISTANCE = 1;
+	private static final long LOCATION_UPDATE_MIN_DISTANCE = 5;
 	private static final long LOCATION_UPDATE_INTERVAL = 1000;
 	public static LocationManager locationManager;
 	private GeoPoint currentGeoPoint;
 	static MyLocationListener listener;
 	
 	List<Overlay> mapOverlays;
-	private MyItemizedOverlay itemizedOverlay;
-	Drawable drawable;
+	List<GeoPoint> points;
+	private PathOverlay pathOverlay;
+	Canvas canvas;
 	
 	Paint paint = new Paint();
 	@Override
@@ -64,9 +65,9 @@ public class MapPage extends MapActivity implements OnClickListener {
 	   
         //define paint
         paint.setDither(true);
-	    paint.setColor(Color.BLUE);
+        paint.setColor(Color.BLUE);
 	    paint.setStyle(Paint.Style.FILL_AND_STROKE);
-	    paint.setStrokeJoin(Paint.Join.ROUND);
+        paint.setStrokeJoin(Paint.Join.ROUND);
 	    paint.setStrokeCap(Paint.Cap.ROUND);
 	    paint.setStrokeWidth(3);
 	}
@@ -75,6 +76,7 @@ public class MapPage extends MapActivity implements OnClickListener {
 	private void initMapView() {
 		map = (MapView) findViewById(R.id.map);
 		controller = map.getController();
+		controller.setZoom(20);
 		map.setSatellite(false);
 		map.setBuiltInZoomControls(true);		
 	}
@@ -85,20 +87,17 @@ public class MapPage extends MapActivity implements OnClickListener {
 		locationManager= (LocationManager)getSystemService(Context.LOCATION_SERVICE);
 		locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,LOCATION_UPDATE_INTERVAL, LOCATION_UPDATE_MIN_DISTANCE,listener);
 		mapOverlays = map.getOverlays(); 
-		drawable = this.getResources().getDrawable(R.drawable.smallpinkdot);
-		itemizedOverlay = new MyItemizedOverlay(drawable);
 		Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-		showCurrentLocation(location);
+		points = new ArrayList<GeoPoint>();
+		pathOverlay =new PathOverlay(points);
+		showCurrentLocation(location);		
 	}
 	protected void showCurrentLocation(Location location){
-		//Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 		if(location!=null){
 			currentGeoPoint=new GeoPoint((int)(location.getLatitude()*1e6),(int)(location.getLongitude()*1e6));
-			controller.setZoom(20);
+			points.add(currentGeoPoint);
 			controller.animateTo(currentGeoPoint);
-			OverlayItem overLayitem = new OverlayItem(currentGeoPoint, null, null);
-			itemizedOverlay.addOverlay(overLayitem);
-			mapOverlays.add(itemizedOverlay);
+			mapOverlays.add(pathOverlay);
 		}
 	}
 	
@@ -130,19 +129,7 @@ public class MapPage extends MapActivity implements OnClickListener {
 	protected boolean isRouteDisplayed() {
 		// Required by MapActivity
 		return false;
-	}
-/*	public class MyOverlay extends Overlay{
-
-	    @Override 
-	    public boolean draw(Canvas canvas, MapView mapView, boolean shadow, long when){
-	        super.draw(canvas, mapView, shadow);
-	        Point screenPts=new Point();
-	        mapView.getProjection().toPixels(currentGeoPoint, screenPts);
-	        canvas.drawPoint(screenPts.x, screenPts.y, paint);
-			return true;
-	    }*/
-	//}
-    
+	}    
 	//OnClick
 	@Override
 	public void onClick(View v){
