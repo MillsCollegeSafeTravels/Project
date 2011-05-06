@@ -25,9 +25,12 @@
 		<activity android:name=".RoutePage" 
 			android:label="@string/app_name"
 			android:theme="@android:style/Theme.NoTitleBar" />
-		<activity android:name=".SendTextMessage" />
-		<activity android:name=".SendMadeItTextMessage" />
-		<activity android:name=".SendTextMessageDanger" />
+		<activity android:name=".SendTextMessage" 
+			android:theme="@android:style/Theme.NoTitleBar"/>
+		<activity android:name=".SendMadeItTextMessage" 
+			android:theme="@android:style/Theme.NoTitleBar"/>
+		<activity android:name=".SendTextMessageDanger" 
+			android:theme="@android:style/Theme.NoTitleBar"/>
 		<activity android:name=".TestPage" 
 			android:theme="@android:style/Theme.NoTitleBar" />
 		<activity android:name=".MapPage" 
@@ -35,6 +38,13 @@
 		<activity android:name=".CrimesListActivity"/>
 		<activity android:name=".MyItemizedOverlay"/>
 		<uses-library android:name="com.google.android.maps" />
+		<activity 
+			android:name=".About"
+			android:label="About"
+			android:theme="@android:style/Theme.Dialog"/>
+		<activity 
+			android:name=".Preferences"
+			android:label="Settings "/>
 	</application>
 	<uses-sdk android:minSdkVersion="3" />
 </manifest> 
