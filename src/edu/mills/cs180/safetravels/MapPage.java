@@ -85,7 +85,7 @@ public class MapPage extends MapActivity implements OnClickListener {
 		locationManager= (LocationManager)getSystemService(Context.LOCATION_SERVICE);
 		locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,LOCATION_UPDATE_INTERVAL, LOCATION_UPDATE_MIN_DISTANCE,listener);
 		mapOverlays = map.getOverlays(); 
-		drawable = this.getResources().getDrawable(R.drawable.icon57);
+		drawable = this.getResources().getDrawable(R.drawable.smallpinkdot);
 		itemizedOverlay = new MyItemizedOverlay(drawable);
 		Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 		showCurrentLocation(location);
