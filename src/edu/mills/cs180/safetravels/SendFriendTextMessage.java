@@ -36,7 +36,7 @@ public class SendFriendTextMessage extends Activity implements OnLongClickListen
 		txtPhoneNo = (EditText) findViewById(R.id.txtPhoneNo);
 		txtMessage = (EditText) findViewById(R.id.txtMessage);
 		txtPhoneNo.setOnLongClickListener(this);
-		txtMessage.setText(R.string.track_me_message);
+		//txtMessage.setText(R.string.track_me_message);
 		btnSendSMS.setOnClickListener(new View.OnClickListener() 
 		{
 			@Override

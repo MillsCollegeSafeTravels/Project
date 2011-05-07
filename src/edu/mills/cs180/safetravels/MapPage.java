@@ -34,7 +34,7 @@ public class MapPage extends MapActivity implements OnClickListener {
 	
 	private static final long LOCATION_UPDATE_MIN_DISTANCE = 5;
 	private static final long LOCATION_UPDATE_INTERVAL = 1000;
-	public static LocationManager locationManager;
+	protected static LocationManager locationManager;
 	private GeoPoint currentGeoPoint;
 	static MyLocationListener listener;
 	
@@ -98,6 +98,7 @@ public class MapPage extends MapActivity implements OnClickListener {
 			points.add(currentGeoPoint);
 			controller.animateTo(currentGeoPoint);
 			mapOverlays.add(pathOverlay);
+
 		}
 	}
 	
@@ -130,6 +131,8 @@ public class MapPage extends MapActivity implements OnClickListener {
 		// Required by MapActivity
 		return false;
 	}    
+
+
 	//OnClick
 	@Override
 	public void onClick(View v){
@@ -151,6 +154,4 @@ public class MapPage extends MapActivity implements OnClickListener {
 			break;
 		}
 	}
-
-
 }
