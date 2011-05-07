@@ -43,11 +43,9 @@
 		<uses-library android:name="com.google.android.maps" />
 		<activity 
 			android:name=".About"
-			android:label="About"
 			android:theme="@android:style/Theme.Dialog"/>
 		<activity 
-			android:name=".Preferences"
-			android:label="Settings "/>
+			android:name=".Preferences"/>
 	</application>
 	<uses-sdk android:minSdkVersion="3" />
 </manifest> 

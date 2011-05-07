@@ -6,6 +6,7 @@
     <string name="route_label">Plan a Safe Route</string>
     <string name="made_it_label">Made It!</string>
     <string name="send_to_friend_label">Send</string>
+    <string name="settings_label">Settings</string>
     <string name="danger_label">DANGER</string>
     <string name="track_me_message">Will You Please Track Me?</string>
     <string name="danger_message">I need help.</string>

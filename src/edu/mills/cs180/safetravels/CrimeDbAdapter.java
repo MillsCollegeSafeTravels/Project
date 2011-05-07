@@ -24,6 +24,7 @@ public class CrimeDbAdapter {
     private DatabaseHelper mDbHelper;
     private SQLiteDatabase mDb;
 	
+    
 	/**
      * Database creation sql statement
      */
