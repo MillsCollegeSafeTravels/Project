@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import android.graphics.drawable.Drawable;
 
+import com.google.android.maps.GeoPoint;
 import com.google.android.maps.ItemizedOverlay;
 import com.google.android.maps.OverlayItem;
 
@@ -15,6 +16,8 @@ public class MyItemizedOverlay extends ItemizedOverlay {
 		// TODO Auto-generated constructor stub
 	}
 	public void addOverlay(OverlayItem overlay){
+		//GeoPoint prevGeo = myOverlays.get(myOverlays.size()-1).getPoint();
+		
 		myOverlays.add(overlay);
 		populate();
 	}

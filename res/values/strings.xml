@@ -10,6 +10,7 @@
     <string name="track_this_route_label">Track This Route</string>
     <string name="get_text_message_number">Enter the phone number of recipient</string>
     <string name="message_label">Message</string>
+    <string name="track_me_message">Please Track Me</string>
     <string name="send_text_message_label">Send Text</string>
     <string name="MapAPIKey">0JHLvaWdrY-Cye9pmNQ_AZg0bkdEuLeJlZTDW-g</string>
     <string name="made_it_text_message">I made it home safe!</string>
