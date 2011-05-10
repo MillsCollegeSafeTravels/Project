@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 public class CrimesListActivity extends ListActivity {
 	public static final int SHOW_MAP_ID = Menu.FIRST;
-	
+
 	private static final int END = 25; //for demo purposes
 
 	private CrimeDbAdapter mDbHelper;

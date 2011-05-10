@@ -20,14 +20,12 @@ public class FirstPage extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 		mProgress = (ProgressBar) findViewById(R.id.progress_bar);
-
 		//set up click listeners
 		View trackButton = findViewById(R.id.track_button);
 		trackButton.setOnClickListener(this);
 		View SafeRouteButton = findViewById(R.id.route_button);
 		SafeRouteButton.setOnClickListener(this);
 	}
-
 	@Override
 	public void onAttachedToWindow() {
 		super.onAttachedToWindow();
@@ -35,20 +33,17 @@ public class FirstPage extends Activity implements OnClickListener {
 		// Eliminates color banding
 		window.setFormat(PixelFormat.RGBA_8888);
 	}
-
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()){
 		case R.id.route_button:
-			startActivity(new Intent(this,RoutePage.class));
-			
+			startActivity(new Intent(this,RoutePage.class));			
 			break;
 		case R.id.track_button:
 			startActivity(new Intent(this,MapPage.class));
 			break;
 		}
 	}
-
 	//allow menu to pop up
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
@@ -56,7 +51,6 @@ public class FirstPage extends Activity implements OnClickListener {
 		inflater.inflate(R.menu.menu, menu);
 		return true;
 	}
-
 	//brings up page when selected on menu
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
