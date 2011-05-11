@@ -10,7 +10,6 @@ public class stopTracking extends Activity implements OnClickListener{
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.stoptracking);
-
 		View StopTrackYesButton = findViewById(R.id.stop_track_yes_button);
 		StopTrackYesButton.setOnClickListener(this);
 		View StopTrackNoButton = findViewById(R.id.stop_track_no_button);
@@ -21,7 +20,7 @@ public class stopTracking extends Activity implements OnClickListener{
 		switch(v.getId()){
 		//Yes
 		case R.id.stop_track_yes_button:
-			MapPage.locationManager.removeUpdates(MapPage.listener);
+			MapPage.sLocationManager.removeUpdates(MapPage.sListener);
 			finish();
 			break;
 			//made it button
@@ -29,6 +28,5 @@ public class stopTracking extends Activity implements OnClickListener{
 			finish();
 			break;
 		}
-
 	}
 }

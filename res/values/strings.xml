@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World, FirstPage!</string>
-    <string name="app_name">FirstPage</string>
+    <string name="app_name">SafeTravels</string>
     <string name="track_label">Track My Route</string>
     <string name="route_label">Plan a Safe Route</string>
     <string name="made_it_label">Made It!</string>
     <string name="send_to_friend_label">Send</string>
     <string name="danger_label">DANGER</string>
-    <string name="track_me_message">Will You Please Track Me?</string>
     <string name="danger_message">I need help.</string>
     <string name="track_this_route_label">Track This Route</string>
     <string name="get_text_message_number">Enter the phone number of recipient</string>
     <string name="message_label">Message</string>
+    <string name="track_me_message">Please Track Me</string>
     <string name="send_text_message_label">Send Text</string>
     <string name="MapAPIKey">0JHLvaWdrY-Cye9pmNQ_AZg0bkdEuLeJlZTDW-g</string>
     <string name="made_it_text_message">I made it home safe!</string>
     <string name="fingerprint">5F:81:23:98:C6:C2:4E:87:61:31:35:2D:37:41:95:02</string>
     <string name="no_info">No Information</string>
+    <string name="settings_label">Settings</string>
+    <string name="about_label">About</string>
+    <string name="loading">Loading...</string>
     <string-array name="crimes_array">
     	<item>Aggravated Assault</item>
     	<item>Murder</item>

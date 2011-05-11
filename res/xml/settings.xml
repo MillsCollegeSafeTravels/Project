@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<CheckBoxPreference
+		android:key="fulltank"
+		android:title="fulltank title"
+		android:summary="fulltank summary"
+		android:defaultValue="true" />
+	<CheckBoxPreference
+		android:key="units"
+		android:defaultValue="true"
+		android:summary="use Gallons and Miles"
+		android:title="Imperial units"/>
+	<CheckBoxPreference
+		android:key="other"
+		android:title="other title"
+		android:summary="other summary"
+		android:defaultValue="false" />
+</PreferenceScreen>
