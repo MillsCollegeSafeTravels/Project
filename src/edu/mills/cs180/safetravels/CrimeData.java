@@ -3,7 +3,15 @@ package edu.mills.cs180.safetravels;
 import android.content.ContentValues;
 
 
-
+/**
+ * 
+ * @author Kate Feeny
+ * @author Jess Martin
+ * @author TeAirra Ward
+ * @author Jodessa Lanzadares
+ * @author Dani E-F
+ *
+ */
 public class CrimeData {
 
 	public static final int CRIME_NUMBER = 13; //the number of different crime types

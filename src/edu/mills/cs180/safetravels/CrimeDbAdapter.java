@@ -8,12 +8,26 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+/**
+ * 
+ * @author Kate Feeny
+ * @author Jess Martin
+ * @author TeAirra Ward
+ * @author Jodessa Lanzadares
+ * @author Dani E-F
+ *
+ */
 public class CrimeDbAdapter {
 
-	public static final String TABLE1_NAME = "crimes";
-
 	//Columns in Crimes database
+	/**
+	 * A String of the id column name.
+	 */
 	public static final String ID = "_id";
+	
+	/**
+	 * A String of the id column name.
+	 */
 	public static final String TYPE = "type";
 	public static final String DESCRIPTION = "description";
 	public static final String DATE = "date";
