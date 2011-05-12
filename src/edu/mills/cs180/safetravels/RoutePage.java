@@ -13,10 +13,10 @@ import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
 import com.google.android.maps.MyLocationOverlay;
 
-public class RoutePage extends MapActivity implements OnClickListener {
-    private MapView map;
-    private MapController controller;
-    private MyLocationOverlay overlay;
+public class RoutePage extends MapActivity implements OnClickListener{
+	private MapView mMapRoute;
+	private MapController mControllerRoute;
+	private MyLocationOverlay mOverlayRoute;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -34,28 +34,28 @@ public class RoutePage extends MapActivity implements OnClickListener {
 
     /** Find and initialize the map view. */
     private void initMapView() {
-        map = (MapView) findViewById(R.id.map);
-        controller = map.getController();
-        map.setSatellite(false);
-        map.setBuiltInZoomControls(true);
+        mMapRoute = (MapView) findViewById(R.id.mapRoute);
+        mControllerRoute = mMapRoute.getController();
+        mMapRoute.setSatellite(false);
+        mMapRoute.setBuiltInZoomControls(true);
     }
 
     /** Start tracking the position on the map. */
     private void initMyLocation() {
-        overlay = new MyLocationOverlay(this, map);
-        overlay.enableMyLocation();
-        overlay.enableCompass(); // does not work in emulator
-        overlay.runOnFirstFix(new Runnable() {
+        mOverlayRoute = new MyLocationOverlay(this, mMapRoute);
+        mOverlayRoute.enableMyLocation();
+        mOverlayRoute.enableCompass(); // does not work in emulator
+        mOverlayRoute.runOnFirstFix(new Runnable() {
             @Override
             public void run() {
                 // Zoom in to current location
-                controller.setZoom(16);
-                controller.animateTo(overlay.getMyLocation());
+                mControllerRoute.setZoom(16);
+                mControllerRoute.animateTo(mOverlayRoute.getMyLocation());
             }
         });
-        map.getOverlays().add(overlay);
+        mMapRoute.getOverlays().add(mOverlayRoute);
     }
-
+    
     @Override
     protected boolean isRouteDisplayed() {
         // Required by MapActivity
@@ -70,7 +70,7 @@ public class RoutePage extends MapActivity implements OnClickListener {
             break;
         }
     }
-
+	
     // allow menu to pop up
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);

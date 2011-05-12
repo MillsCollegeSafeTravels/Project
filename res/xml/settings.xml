@@ -3,13 +3,13 @@
 	xmlns:android="http://schemas.android.com/apk/res/android">
 	<CheckBoxPreference
 		android:key="texttime"
-		android:title="Automatically send danger text to friend"
-		android:summary="If checked, app won't wait 10 seconds before texting your friend to tell
-		                  them you're in trouble."
+		android:title="Automatic Send"
+		android:summary="If checked will automatically send Danger text to your friend. If unchecked,
+		will wait 10 seconds before sending text."
 		android:defaultValue="true" />
 	<CheckBoxPreference
 		android:key="dangersound"
 		android:defaultValue="true"
-		android:summary="If checked, a loud alarm will be emitted if you press the Danger button."
+		android:summary="If checked, a loud alarm will be emitted when you press the Danger button."
 		android:title="Enable Danger Alarm"/>
 </PreferenceScreen>

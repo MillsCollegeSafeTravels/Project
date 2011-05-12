@@ -2,13 +2,13 @@
 
 <LinearLayout
   	 xmlns:android="http://schemas.android.com/apk/res/android"
-  	 android:id="@+id/frame"
+  	 android:id="@+id/frameRoute"
   	 android:orientation="vertical"
   	 android:layout_width="fill_parent"
   	 android:layout_height="fill_parent"
   	 android:background="@drawable/background">
-	<com.google.android.maps.MapView
-      	android:id="@+id/map"
+		<com.google.android.maps.MapView
+      	android:id="@+id/mapRoute"
       	android:apiKey="@string/MapAPIKey"
      	android:layout_width="fill_parent"
     	android:layout_height="400dip"
@@ -26,6 +26,7 @@
 				android:textSize="18sp"
 				android:typeface="sans"
 				android:layout_gravity="center"
-				android:background="@drawable/mainbutton"/>
+				android:background="@drawable/mainbutton"
+				android:layout_marginRight="5dip"/>
 	</LinearLayout>
 </LinearLayout>

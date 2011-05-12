@@ -12,16 +12,15 @@
     <string name="message_label">Message</string>
     <string name="track_me_message">Please Track Me</string>
     <string name="send_text_message_label">Send Text</string>
+    <string name="MapAPIKey2">0JHLvaWdrY-C48P_RmBbHeAWYtqxUI3wazoSbkQ</string>
     <string name="MapAPIKey">0JHLvaWdrY-BXoN3EtwhK1ItpMPhkLj1prwYw-w</string>
     <string name="MapAPIKeyDebug">0JHLvaWdrY-Cye9pmNQ_AZg0bkdEuLeJlZTDW-g</string>
     <string name="made_it_text_message">I made it home safe!</string>
     <string name="fingerprint">5F:81:23:98:C6:C2:4E:87:61:31:35:2D:37:41:95:02</string>
     <string name="no_info">No Information</string>
+    <string name="find_route_label">Get Route</string>
     <string name="settings_label">Settings</string>
     <string name="about_label">About</string>
-    <string name="loading">Loading...</string>
-    <string name="plan_label">Plan a Route</string>
-    <string name="stoptracking_label">Stop Tracking</string>
     <string name="about_text">SafeTravels is an app for users who are concerned about their safety while traveling 
 and wish to share their progress home with others. You will be able to plan a route through public transportation based 
 on how safe the route is. With SafeTravels, you will also be able to track   

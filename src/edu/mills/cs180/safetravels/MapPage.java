@@ -140,6 +140,7 @@ public class MapPage extends MapActivity implements OnClickListener {
         inflater.inflate(R.menu.menu, menu);
         return true;
     }
+    
     // brings up page when selected on menu
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -147,7 +148,7 @@ public class MapPage extends MapActivity implements OnClickListener {
         case R.id.about_menuitem:
             startActivity(new Intent(this, About.class));
             break;
-        case R.id.planroute_menuitem:
+        case R.id.settings_menuitem:
             startActivity(new Intent(this, RoutePage.class));
             break;
         }
