@@ -14,9 +14,9 @@ import com.google.android.maps.MapView;
 import com.google.android.maps.MyLocationOverlay;
 
 public class RoutePage extends MapActivity implements OnClickListener{
-	private MapView map;
-	private MapController controller;
-	private MyLocationOverlay overlay;
+	private MapView mMap;
+	private MapController mController;
+	private MyLocationOverlay mOverlay;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -34,26 +34,26 @@ public class RoutePage extends MapActivity implements OnClickListener{
 
 	/** Find and initialize the map view. */
 	private void initMapView() {
-		map = (MapView) findViewById(R.id.map);
-		controller = map.getController();
-		map.setSatellite(false);
-		map.setBuiltInZoomControls(true);
+		mMap = (MapView) findViewById(R.id.map);
+		mController = mMap.getController();
+		mMap.setSatellite(false);
+		mMap.setBuiltInZoomControls(true);
 	}
 
 	/** Start tracking the position on the map. */
 	private void initMyLocation() {
-		overlay = new MyLocationOverlay(this, map);
-		overlay.enableMyLocation();
-		overlay.enableCompass(); // does not work in emulator
-		overlay.runOnFirstFix(new Runnable() {
+		mOverlay = new MyLocationOverlay(this, mMap);
+		mOverlay.enableMyLocation();
+		mOverlay.enableCompass(); // does not work in emulator
+		mOverlay.runOnFirstFix(new Runnable() {
 			@Override
 			public void run() {
 				// Zoom in to current location
-				controller.setZoom(16);
-				controller.animateTo(overlay.getMyLocation());
+				mController.setZoom(16);
+				mController.animateTo(mOverlay.getMyLocation());
 			}
 		});
-		map.getOverlays().add(overlay);
+		mMap.getOverlays().add(mOverlay);
 	}
 	
 	@Override
