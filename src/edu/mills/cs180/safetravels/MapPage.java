@@ -6,6 +6,7 @@ package edu.mills.cs180.safetravels;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Canvas;
@@ -17,12 +18,14 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.media.SoundPool.OnLoadCompleteListener;
 
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
 import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
 import com.google.android.maps.Overlay;
+
 
 /**
  * @author KateFeeney
@@ -149,6 +152,19 @@ public class MapPage extends MapActivity implements OnClickListener {
 		case R.id.danger_button:
 			startActivity(new Intent(this, SendTextMessageDanger.class));
 			break;
+//			public void onLongClick(View v){
+//				if(v.getId()==R.id.danger_button){
+//					return true; 
+//				}else{
+//					return false;
+//				}
+//				
+//			}
+			
+				
+			}
 		}
 	}
-}
+
+	
+	

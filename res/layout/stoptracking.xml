@@ -1,28 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  android:orientation="vertical"
-  android:layout_width="fill_parent"
-  android:layout_height="fill_parent">
-  <TextView
-  android:text="Do you want to stop being tracked?"
-  		android:layout_height="wrap_content"
-		android:layout_width="wrap_content"/>
-  <LinearLayout
- 		android:orientation="horizontal"
-		android:layout_height="wrap_content"
-		android:layout_width="wrap_content"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+	<TextView android:text="Do you want to stop being tracked?"
+		android:layout_height="wrap_content" android:layout_width="wrap_content" />
+	<LinearLayout android:orientation="horizontal"
+		android:layout_height="wrap_content" android:layout_width="wrap_content"
 		android:gravity="center">
-		<Button
-		android:id="@+id/stop_track_yes_button"
-		android:text= "YES"
-		android:layout_width="fill_parent"
-  		android:layout_height="fill_parent"/>
-		<Button
-		android:id="@+id/stop_track_no_button"
-		android:text= "NO"
-		android:layout_width="fill_parent"
-  		android:layout_height="fill_parent"/>
-</LinearLayout>
-  
+		<Button android:id="@+id/stop_track_yes_button" android:text="YES"
+			android:layout_width="fill_parent" android:layout_height="fill_parent" />
+		<Button android:id="@+id/stop_track_no_button" android:text="NO"
+			android:layout_width="fill_parent" android:layout_height="fill_parent" />
+	</LinearLayout>
+
 </LinearLayout>

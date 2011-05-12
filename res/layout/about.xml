@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <ScrollView
-    	xmlns:android="http://schemas.android.com/apk/res/android"
-    	android:layout_width="fill_parent"
-    	android:layout_height="fill_parent"
-    	android:padding="10dip">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:padding="10dip">
 
-    	<TextView
-    	android:id="@+id/about_content"
-    	android:layout_width="wrap_content"
-    	android:layout_height="wrap_content"
-    	android:textSize="19sp" 
-    	android:textColor="#ffffff"
-    	android:text="SafeTravels is an app for users who are concerned about their safety while traveling 
+	<TextView android:id="@+id/about_content"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:textSize="19sp" android:textColor="#ffffff"
+		android:text="SafeTravels is an app for users who are concerned about their safety while traveling 
 and wish to share their progress home with others. You will be able to plan a route through public transportation based 
 on how safe the route is. With SafeTravels, you will also be able to track   
 your route and share this information with a friend." />
-    </ScrollView>
+</ScrollView>
