@@ -1,4 +1,5 @@
 package edu.mills.cs180.safetravels;
+
 import android.app.Activity;
 import android.os.Bundle;
 

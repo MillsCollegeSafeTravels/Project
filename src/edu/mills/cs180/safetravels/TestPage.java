@@ -11,5 +11,3 @@ public class TestPage extends Activity {
         setContentView(R.layout.sendtxt);
     }
 }
-
-
