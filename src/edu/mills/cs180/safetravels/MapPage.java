@@ -161,4 +161,5 @@ public class MapPage extends MapActivity implements OnClickListener {
     @Override
     public void onBackPressed(){
     	startActivity(new Intent(this, TrackingDisabler.class));
+    }
 }
