@@ -18,13 +18,51 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+/**
+ * FriendTextMessage is an activity that allows the user to send a SMS message to his/her contacts.
+ * 
+ * @author Kate Feeny
+ * @author Jess Martin
+ * @author TeAirra Ward
+ * @author Jodessa Lanzadares
+ * @author Dani E-F
+ *
+ */
 public class FriendTextMessage extends Activity implements OnLongClickListener {
+	
+	/**
+	 * A button for sending an SMS message.
+	 */
     private Button mBtnSendSMS;
+    
+    /**
+	 * An EditText object for the destined phone number.
+	 */
     private EditText mTxtPhoneNo;
+    
+    /**
+	 * An EditText object for the text of the message.
+	 */
     private EditText mTxtMessage;
+    
+    /**
+	 * An integer for the selected contact. Initial value is 1010. 
+	 */
     private static final int PICK_CONTACT = 1010;
+    
+    /**
+	 * Debug Tag for logging debug output to LogCat.
+	 */
     private static final String DEBUG_TAG = null;
-    /** Called when the activity is first created. */
+    
+    /**
+	 * Called when the activity is starting. Sets the onClickListeners of the View for the phone 
+	 * number and the send SMS button.
+	 * 
+	 * @param savedInstanceState if the activity is being re-initialized after previously being 
+	 * shut down then this Bundle contains the data it most recently supplied in 
+	 * onSaveInstanceState(Bundle). Note: Otherwise it is null.
+	 */
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -46,10 +84,18 @@ public class FriendTextMessage extends Activity implements OnLongClickListener {
                     Toast.makeText(getBaseContext(), 
                             "Please enter both phone number and message.", 
                             Toast.LENGTH_SHORT).show();
-                }
-            }
+                }//else
+            }//onClick
         });        
-    } 
+    }//onCreate
+    
+    /**
+	 * Called when a View is clicked and held. Gets the contacts if the phone number box was the 
+	 * View v parameter and starts an activity for picking the contacts.
+	 * 
+	 * @param v the View that was clicked
+	 * @return true if the contacts activity was successfully started
+	 */
     @Override
     public boolean onLongClick(View v){
         if(v.getId()==R.id.txtPhoneNo){
@@ -58,14 +104,31 @@ public class FriendTextMessage extends Activity implements OnLongClickListener {
             startActivityForResult(intent, PICK_CONTACT);
             return true;
         }else return false;
-    }
-    //---sends an SMS message to another device---
+    }//onLongClick
+    
+    /**
+	 * Sends an SMS message to another device.
+	 * 
+	 * @param phoneNumber the String holding the phone number to send the message to
+	 * @param message the String holding the message to be sent
+	 */
     private void sendSMS(String phoneNumber, String message){        
         PendingIntent pi = PendingIntent.getActivity(this, 0,
                 new Intent(this, FriendTextMessage.class), 0);                
         SmsManager sms = SmsManager.getDefault();
         sms.sendTextMessage(phoneNumber, null, message, pi, null);        
-    }
+    }//sendSMS
+    
+    /**
+	 * Called when an activity you launched exits. Allows the user to pick the contacts to send a 
+	 * SMS to and returns the data to this activity.
+	 * 
+	 * @param requestCode the integer request code originally supplied to startActivityForResult(), 
+	 * allowing you to identify who this result came from
+	 * @param resultCode The integer result code returned by the child activity through its 
+	 * setResult()
+	 * @param intent an Intent, which can return result data to the caller
+	 */
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent intent){	
         //may be error if there is no contacts
@@ -110,6 +173,6 @@ public class FriendTextMessage extends Activity implements OnLongClickListener {
             }
         }else{
             Toast.makeText(this, "Activity Result Error", Toast.LENGTH_LONG).show(); 
-        }
+        }//else
     }//onActivityResult
-}
+}//FriendTextMessage
