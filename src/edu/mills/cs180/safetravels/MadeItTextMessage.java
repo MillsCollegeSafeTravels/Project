@@ -17,7 +17,7 @@ import android.view.View.OnLongClickListener;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class SendMadeItTextMessage extends Activity implements OnLongClickListener, OnClickListener{
+public class MadeItTextMessage extends Activity implements OnLongClickListener, OnClickListener{
 	private View mBtnSendSMS;
 	private EditText mTxtPhoneNo;
 	private EditText mTxtMessage;
@@ -51,7 +51,7 @@ public class SendMadeItTextMessage extends Activity implements OnLongClickListen
 	//---sends an SMS message to another device---
 	private void sendSMS(String phoneNumber, String message){        
 		PendingIntent pi = PendingIntent.getActivity(this, 0,
-				new Intent(this, SendMadeItTextMessage.class), 0);                
+				new Intent(this, MadeItTextMessage.class), 0);                
 		SmsManager sms = SmsManager.getDefault();
 		sms.sendTextMessage(phoneNumber, null, message, pi, null);        
 	}
@@ -105,12 +105,12 @@ public class SendMadeItTextMessage extends Activity implements OnLongClickListen
 			String message = mTxtMessage.getText().toString();                 
 			if (phoneNo.length()>0 && message.length()>0){                
 				sendSMS(phoneNo, message); 
-				startActivity( new Intent(this,stopTracking.class));
+				startActivity( new Intent(this,TrackingDisabler.class));
 				finish();
 			}
 			else{
 				//for testing
-				startActivity( new Intent(this,stopTracking.class));
+				startActivity( new Intent(this,TrackingDisabler.class));
 				finish();
 			}
 		}

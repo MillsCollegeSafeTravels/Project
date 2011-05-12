@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class SendTextMessageDanger extends Activity implements OnLongClickListener {
+public class DangerTextMessage extends Activity implements OnLongClickListener {
 	    private Button mBtnSendSMS;
 	    private EditText mTxtPhoneNo;
 	    private EditText mTxtMessage;
@@ -52,7 +52,7 @@ public class SendTextMessageDanger extends Activity implements OnLongClickListen
 	    //---sends an SMS message to another device---
 	    private void sendSMS(String phoneNumber, String message){        
 	        PendingIntent pi = PendingIntent.getActivity(this, 0,
-	            new Intent(this, SendTextMessageDanger.class), 0);                
+	            new Intent(this, DangerTextMessage.class), 0);                
 	        SmsManager sms = SmsManager.getDefault();
 	        sms.sendTextMessage(phoneNumber, null, message, pi, null);        
 	    }
