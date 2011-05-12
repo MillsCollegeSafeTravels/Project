@@ -136,7 +136,7 @@ public class MapPage extends MapActivity implements OnClickListener {
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.track_menu, menu);
+        inflater.inflate(R.menu.menu, menu);
         return true;
     }
     // brings up page when selected on menu
@@ -146,14 +146,8 @@ public class MapPage extends MapActivity implements OnClickListener {
         case R.id.about_menuitem:
             startActivity(new Intent(this, About.class));
             break;
-        case R.id.tracksettings_menuitem:
-            startActivity(new Intent(this, Preferences.class));
-            break;
         case R.id.planroute_menuitem:
             startActivity(new Intent(this, RoutePage.class));
-            break;
-        case R.id.stoptracking_menuitem:
-            startActivity(new Intent(this, TrackingDisabler.class));
             break;
         }
         return true;

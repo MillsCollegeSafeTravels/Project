@@ -35,7 +35,7 @@
 		<activity android:name=".MapPage" 
 			android:theme="@android:style/Theme.NoTitleBar" />
 		<activity android:name=".TrackingDisabler" 
-			android:theme="@android:style/Theme.NoTitleBar"/>
+			android:theme="@android:style/Theme.Dialog"/>
 		<activity android:name=".CrimesListActivity"/>
 		<uses-library android:name="com.google.android.maps" />
 		<activity 

@@ -4,25 +4,41 @@
   android:orientation="vertical"
   android:layout_width="fill_parent"
   android:layout_height="fill_parent">
-  <TextView
-  android:text="Do you want to stop being tracked?"
-  		android:layout_height="wrap_content"
-		android:layout_width="wrap_content"/>
-  <LinearLayout
- 		android:orientation="horizontal"
-		android:layout_height="wrap_content"
-		android:layout_width="wrap_content"
+    <TextView
+    android:text="Do you want to stop being tracked?"
+  	android:layout_height="wrap_content"
+	android:layout_width="wrap_content"/>
+    <LinearLayout
+ 	  android:orientation="horizontal"
+	   android:layout_height="wrap_content"
+	   android:layout_width="wrap_content"
 		android:gravity="center">
 		<Button
-		android:id="@+id/stop_track_yes_button"
-		android:text= "YES"
-		android:layout_width="fill_parent"
-  		android:layout_height="fill_parent"/>
+		  android:id="@+id/stop_track_yes_button"
+		  android:background="@drawable/mainbutton"
+		  android:text= "YES"
+  		  android:layout_height="wrap_content"
+          android:layout_width="wrap_content" 
+          android:textSize="18sp"
+          android:typeface="sans"
+          android:layout_gravity="center"
+          android:layout_marginRight="5dip"
+          android:layout_marginLeft="5dip"
+          android:layout_marginTop="5dip"
+          android:layout_marginBottom="5dip"/>
 		<Button
-		android:id="@+id/stop_track_no_button"
-		android:text= "NO"
-		android:layout_width="fill_parent"
-  		android:layout_height="fill_parent"/>
-</LinearLayout>
+		  android:id="@+id/stop_track_no_button"
+		  android:background="@drawable/mainbutton"
+		  android:text= "NO"
+		  android:layout_height="wrap_content"
+          android:layout_width="wrap_content" 
+          android:textSize="18sp"
+          android:typeface="sans"
+          android:layout_gravity="center"
+          android:layout_marginRight="5dip"
+          android:layout_marginLeft="5dip"
+          android:layout_marginTop="5dip"
+          android:layout_marginBottom="5dip"/>
+    </LinearLayout>
   
 </LinearLayout>

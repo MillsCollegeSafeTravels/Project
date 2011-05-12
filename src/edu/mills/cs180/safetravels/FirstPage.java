@@ -11,8 +11,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 
-public class FirstPage extends Activity implements OnClickListener {
-
+public class FirstPage extends Activity implements OnClickListener{
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,8 +37,8 @@ public class FirstPage extends Activity implements OnClickListener {
         case R.id.route_button:
             startActivity(new Intent(this, RoutePage.class));            
             break;
-        case R.id.track_button:
-            startActivity(new Intent(this, MyProgressBar.class));
+        case R.id.track_button:   
+            startActivity(new Intent(this, MapPage.class)); 
             break;
         }
     }
@@ -47,7 +46,7 @@ public class FirstPage extends Activity implements OnClickListener {
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main_menu, menu);
+        inflater.inflate(R.menu.menu, menu);
         return true;
     }
     // brings up page when selected on menu
@@ -58,7 +57,7 @@ public class FirstPage extends Activity implements OnClickListener {
         case R.id.about_menuitem:
             startActivity(new Intent(this, About.class));
             break;
-        case R.id.mainsettings_menuitem:
+        case R.id.settings_menuitem:
             startActivity(new Intent(this, Preferences.class));
             break;
         }
