@@ -74,25 +74,26 @@ public final class R {
     }
     public static final class string {
         public static final int MapAPIKey=0x7f05000c;
-        public static final int about_label=0x7f050011;
-        public static final int about_text=0x7f050015;
+        public static final int MapAPIKeyDebug=0x7f05000d;
+        public static final int about_label=0x7f050012;
+        public static final int about_text=0x7f050016;
         public static final int app_name=0x7f050000;
         public static final int danger_label=0x7f050005;
         public static final int danger_message=0x7f050006;
-        public static final int fingerprint=0x7f05000e;
+        public static final int fingerprint=0x7f05000f;
         public static final int get_text_message_number=0x7f050008;
-        public static final int loading=0x7f050012;
+        public static final int loading=0x7f050013;
         public static final int made_it_label=0x7f050003;
-        public static final int made_it_text_message=0x7f05000d;
-        public static final int menu_see_on_map=0x7f050016;
+        public static final int made_it_text_message=0x7f05000e;
+        public static final int menu_see_on_map=0x7f050017;
         public static final int message_label=0x7f050009;
-        public static final int no_info=0x7f05000f;
-        public static final int plan_label=0x7f050013;
+        public static final int no_info=0x7f050010;
+        public static final int plan_label=0x7f050014;
         public static final int route_label=0x7f050002;
         public static final int send_text_message_label=0x7f05000b;
         public static final int send_to_friend_label=0x7f050004;
-        public static final int settings_label=0x7f050010;
-        public static final int stoptracking_label=0x7f050014;
+        public static final int settings_label=0x7f050011;
+        public static final int stoptracking_label=0x7f050015;
         public static final int track_label=0x7f050001;
         public static final int track_me_message=0x7f05000a;
         public static final int track_this_route_label=0x7f050007;

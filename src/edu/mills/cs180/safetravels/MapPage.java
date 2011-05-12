@@ -30,6 +30,8 @@ public class MapPage extends MapActivity implements OnClickListener {
 	private List<Overlay> mMapOverlays;
 	private List<GeoPoint> mPoints;
 	private PathOverlay mPathOverlay;
+	//overlay for the flashing dot at the user's current location
+	static MyLocationOverlay sOverlay;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -65,6 +67,17 @@ public class MapPage extends MapActivity implements OnClickListener {
 		Location location = sLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 		mPoints = new ArrayList<GeoPoint>();
 		mPathOverlay =new PathOverlay(mPoints);
+		//Test start
+		sOverlay = new MyLocationOverlay(this,mMap);
+		sOverlay.enableMyLocation();
+		sOverlay.enableCompass();
+		sOverlay.runOnFirstFix(new Runnable(){
+		    public void run(){
+		    mController.setZoom(20);
+		    mController.animateTo(sOverlay.getMyLocation());
+		    } 
+		});
+		mMap.getOverlays().add(sOverlay);
 		showCurrentLocation(location);		
 	}
 	/** adds overlay path to map, moves to current location. */
@@ -145,4 +158,7 @@ public class MapPage extends MapActivity implements OnClickListener {
         }
         return true;
     }
+    @Override
+    public void onBackPressed(){
+    	startActivity(new Intent(this, TrackingDisabler.class));
 }
