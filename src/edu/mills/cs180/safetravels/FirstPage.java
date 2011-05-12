@@ -70,7 +70,6 @@ public class FirstPage extends Activity implements OnClickListener {
 	public void onClick(View v) {
 		switch (v.getId()){
 		case R.id.route_button:
-		    startActivity(new Intent(this,MapPage.class));
 			startActivity(new Intent(this,RoutePage.class));			
 			break;
 		case R.id.track_button:
