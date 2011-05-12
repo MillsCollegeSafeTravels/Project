@@ -29,40 +29,37 @@ public final class R {
     }
     public static final class id {
         public static final int about_content=0x7f080000;
-        public static final int about_menuitem=0x7f080013;
-        public static final int btnSendSMS=0x7f080010;
-        public static final int danger_button=0x7f080009;
-        public static final int destination_address=0x7f08000b;
-        public static final int find_route_button=0x7f08000d;
-        public static final int frame=0x7f080006;
-        public static final int logo_view=0x7f080003;
-        public static final int made_it_button=0x7f08000a;
-        public static final int map=0x7f080007;
-        public static final int output=0x7f080001;
-        public static final int progress_bar=0x7f080002;
-        public static final int route_button=0x7f080005;
-        public static final int send_to_friend_button=0x7f080008;
-        public static final int settings_menuitem=0x7f080014;
-        public static final int stop_track_no_button=0x7f080012;
-        public static final int stop_track_yes_button=0x7f080011;
-        public static final int track_button=0x7f080004;
+        public static final int about_menuitem=0x7f080012;
+        public static final int btnSendSMS=0x7f08000f;
+        public static final int danger_button=0x7f080008;
+        public static final int frame=0x7f080005;
+        public static final int frameRoute=0x7f08000a;
+        public static final int logo_view=0x7f080002;
+        public static final int made_it_button=0x7f080009;
+        public static final int map=0x7f080006;
+        public static final int mapRoute=0x7f08000b;
+        public static final int progress_bar=0x7f080001;
+        public static final int route_button=0x7f080004;
+        public static final int send_to_friend_button=0x7f080007;
+        public static final int settings_menuitem=0x7f080013;
+        public static final int stop_track_no_button=0x7f080011;
+        public static final int stop_track_yes_button=0x7f080010;
+        public static final int track_button=0x7f080003;
         public static final int track_this_route_button=0x7f08000c;
-        public static final int txtMessage=0x7f08000f;
-        public static final int txtPhoneNo=0x7f08000e;
+        public static final int txtMessage=0x7f08000e;
+        public static final int txtPhoneNo=0x7f08000d;
     }
     public static final class layout {
         public static final int about=0x7f030000;
         public static final int crime_row=0x7f030001;
         public static final int crimes_list=0x7f030002;
-        public static final int locationfinder=0x7f030003;
-        public static final int main=0x7f030004;
-        public static final int mapview=0x7f030005;
-        public static final int progressbar_activity=0x7f030006;
-        public static final int routepage=0x7f030007;
-        public static final int sendmadeittxt=0x7f030008;
-        public static final int sendtxt=0x7f030009;
-        public static final int stoptracking=0x7f03000a;
-        public static final int testpage=0x7f03000b;
+        public static final int main=0x7f030003;
+        public static final int mapview=0x7f030004;
+        public static final int progressbar_activity=0x7f030005;
+        public static final int routepage=0x7f030006;
+        public static final int sendmadeittxt=0x7f030007;
+        public static final int sendtxt=0x7f030008;
+        public static final int stoptracking=0x7f030009;
     }
     public static final class menu {
         public static final int menu=0x7f070000;
