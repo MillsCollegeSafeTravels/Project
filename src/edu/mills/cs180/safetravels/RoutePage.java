@@ -1,18 +1,23 @@
 package edu.mills.cs180.safetravels;
 
+import java.util.List;
+
 import android.content.Intent;
+import android.graphics.Path.Direction;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.EditText;
 
 import com.google.android.maps.MapActivity;
 import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
 import com.google.android.maps.MyLocationOverlay;
-
 public class RoutePage extends MapActivity implements OnClickListener{
 	private MapView mMap;
 	private MapController mController;
@@ -30,6 +35,8 @@ public class RoutePage extends MapActivity implements OnClickListener{
 		 //set up click listeners
         View TrackThisRouteButton = findViewById(R.id.track_this_route_button);
         TrackThisRouteButton.setOnClickListener(this);
+        View FindRouteButton = findViewById(R.id.find_route_button);
+        FindRouteButton.setOnClickListener(this);
 	}
 
 	/** Find and initialize the map view. */
@@ -68,6 +75,29 @@ public class RoutePage extends MapActivity implements OnClickListener{
 		case R.id.track_this_route_button:
 			startActivity(new Intent(this, MapPage.class));
 			break;
+		case R.id.find_route_button:
+		    Geocoder gc = new Geocoder(this);
+		    EditText address = (EditText)findViewById(R.id.destination_address);
+            String addressInput = address.getText().toString(); //Get input text
+            double lat;
+            double lon;
+            try {
+                List<Address> foundAdresses = gc.getFromLocationName(addressInput, 5); //Search addresses
+                for (int i = 0; i < foundAdresses.size(); ++i) {
+                    //Save results as Longitude and Latitude
+                    //@todo: if more than one result, then show a select-list
+                    Address x = foundAdresses.get(i);
+                    lat = x.getLatitude();
+                    lon = x.getLongitude();
+                  }
+            }
+              catch (Exception e) {
+                //@todo: Show error message
+              }
+              
+		
+		    break;
+		    
 		}
 	}
 	
@@ -90,6 +120,7 @@ public class RoutePage extends MapActivity implements OnClickListener{
 	    }
 	    return true;
 	}
+	
 }
 
 
