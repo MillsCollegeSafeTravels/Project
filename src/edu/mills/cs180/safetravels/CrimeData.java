@@ -4,6 +4,7 @@ import android.content.ContentValues;
 
 
 /**
+ * CrimeData is a class that was used for testing the database functions.
  * 
  * @author Kate Feeny
  * @author Jess Martin
@@ -14,11 +15,20 @@ import android.content.ContentValues;
  */
 public class CrimeData {
 
-	public static final int CRIME_NUMBER = 13; //the number of different crime types
-	public static int[] countsOfCrimes = new int[CRIME_NUMBER];
+	/**
+	 * Number of different crime types
+	 */
+	public static final int CRIME_NUMBER = 13;
 	
+	/**
+	 * Inserts test values into the crimes table. The test set includes 4 Robberies, 2 Arsons, 1 
+	 * Murder, 6 Thefts, 1 Alcoholism, and 1 Vandalism. These values were chosen randomly. The rest 
+	 *  of the information was simply repeated, except for the description.
+	 * 
+	 * @param adapter the CrimeDbAdapter to use for inserting the crimes
+	 */
 	public static void enterTestData(CrimeDbAdapter adapter) {
-		adapter.createCrime("Robbery", "blah1", "2011-03-11", 34.1111, 35.1111);
+		/*adapter.createCrime("Robbery", "blah1", "2011-03-11", 34.1111, 35.1111);
 		adapter.createCrime("Robbery", "blah2", "2011-03-14", 34.1111, 35.1111);
 		adapter.createCrime("Robbery", "blah3", "2011-02-11", 34.1111, 35.1111);
 		adapter.createCrime("Robbery", "blah4", "2011-04-20", 34.1111, 35.1111);
@@ -32,12 +42,7 @@ public class CrimeData {
 		adapter.createCrime("Theft", "blah12", "2011-03-11", 34.1111, 35.1111);
 		adapter.createCrime("Theft", "blah13", "2011-03-11", 34.1111, 35.1111);
 		adapter.createCrime("Alcohol", "blah14", "2011-03-11", 34.1111, 35.1111);
-		adapter.createCrime("Vandalism", "blah15", "2011-03-11", 34.1111, 35.1111);
-	}
-	
-	
-	/*TODO: change for crime database; need an additional class(es) 
-	 * that will get info from the tsv/csv file and info used to 
-	 * populate table*/
+		adapter.createCrime("Vandalism", "blah15", "2011-03-11", 34.1111, 35.1111);*/
+	}//enterTestData
 	
 }//CrimeData
