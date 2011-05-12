@@ -75,7 +75,7 @@ public class RoutePage extends MapActivity implements OnClickListener {
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu, menu);
+        inflater.inflate(R.menu.plan_menu, menu);
         return true;
     }
 
@@ -83,10 +83,16 @@ public class RoutePage extends MapActivity implements OnClickListener {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+        //only option is to view about info until settings are adding for plan route
         case R.id.about_menuitem:
             startActivity(new Intent(this, About.class));
-        case R.id.settings_menuitem:
+            break;
+        case R.id.tracksettings_menuitem:
             startActivity(new Intent(this, Preferences.class));
+            break;
+        case R.id.stoptracking_menuitem:
+            startActivity(new Intent(this, TrackingDisabler.class));
+            break;
         }
         return true;
     }

@@ -16,11 +16,8 @@ import android.widget.Toast;
 
 public class CrimesListActivity extends ListActivity {
     public static final int SHOW_MAP_ID = Menu.FIRST;
-
-    private static final int END = 25; // for demo purposes
-
+	private static final int END = 25; //for demo purposes
     private CrimeDbAdapter mDbHelper;
-
     private CharSequence defaultItemMsg = "Will load layout of activity for "
             + "type of crime selected.";
     private CharSequence defaultMenuMsg = "Will take to map view with crimes " + "shown.";
@@ -29,20 +26,15 @@ public class CrimesListActivity extends ListActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         mDbHelper = new CrimeDbAdapter(this);
         mDbHelper.open();
         // TODO: replace below method with method to populate with real data
         // enterTestingData(mDbHelper);
-
         String[] crimeNames = getResources().getStringArray(R.array.crimes_array);
         String[] crimesAndCount = addCounts(crimeNames);
-
         setListAdapter(new ArrayAdapter<String>(this, R.layout.crime_row, crimesAndCount));
-
         ListView lv = getListView();
         lv.setTextFilterEnabled(true);
-
         // TODO: Change to load a layout file for new Activity w/ list of types
         // of crime selected
         lv.setOnItemClickListener(new OnItemClickListener() {

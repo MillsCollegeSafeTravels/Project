@@ -22,7 +22,7 @@ public class stopTracking extends Activity implements OnClickListener {
         switch (v.getId()) {
         // Yes
         case R.id.stop_track_yes_button:
-            MapPage.locationManager.removeUpdates(MapPage.listener);
+            MapPage.sLocationManager.removeUpdates(MapPage.sListener);
             finish();
             break;
         // made it button

@@ -3,160 +3,146 @@
  */
 package edu.mills.cs180.safetravels;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import android.content.Context;
-import android.content.Intent;
+import android.content.*;
 import android.graphics.*;
-import android.graphics.drawable.Drawable;
 import android.location.*;
 import android.os.Bundle;
-import android.view.View;
+import android.view.*;
 import android.view.View.OnClickListener;
 
 import com.google.android.maps.*;
+
 /**
  * @author KateFeeney
  *
  */
 public class MapPage extends MapActivity implements OnClickListener {
-	private MapView map;
-	private MapController controller;
-	
-	private static final long LOCATION_UPDATE_MIN_DISTANCE = 1;
+	private MapView mMap;
+	private MapController mController;
+	private static final long LOCATION_UPDATE_MIN_DISTANCE = 5;
 	private static final long LOCATION_UPDATE_INTERVAL = 1000;
-	protected static LocationManager locationManager;
-	private GeoPoint currentGeoPoint;
-	static MyLocationListener listener;
-	
-	List<Overlay> mapOverlays;
-	private MyItemizedOverlay itemizedOverlay;
-	Drawable drawable;
-	
-	Paint paint = new Paint();
+	public static LocationManager sLocationManager;
+	protected GeoPoint mCurrentGeoPoint;
+	static MyLocationListener sListener;
+	private List<Overlay> mMapOverlays;
+	private List<GeoPoint> mPoints;
+	private PathOverlay mPathOverlay;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		//set view to mapview
 		setContentView(R.layout.mapview);
-		
 		//init background map, get sat and zoom 
 		initMapView();
 		//init location, turn on tracker and compass
 		initMyLocation();
-		 
 		//set up click listeners
-        View SendToFriendButton = findViewById(R.id.send_to_friend_button);
-        SendToFriendButton.setOnClickListener(this);
-        View DangerButton = findViewById(R.id.danger_button);
-        DangerButton.setOnClickListener(this);
-        View MadeItButton = findViewById(R.id.made_it_button);
-        MadeItButton.setOnClickListener(this);
-	   
-        //define paint
-        paint.setDither(true);
-	    paint.setColor(Color.BLUE);
-	    paint.setStyle(Paint.Style.FILL_AND_STROKE);
-	    paint.setStrokeJoin(Paint.Join.ROUND);
-	    paint.setStrokeCap(Paint.Cap.ROUND);
-	    paint.setStrokeWidth(3);
+		View SendToFriendButton = findViewById(R.id.send_to_friend_button);
+		SendToFriendButton.setOnClickListener(this);
+		View DangerButton = findViewById(R.id.danger_button);
+		DangerButton.setOnClickListener(this);
+		View MadeItButton = findViewById(R.id.made_it_button);
+		MadeItButton.setOnClickListener(this);
 	}
-
 	/** Find and initialize the map view. */
 	private void initMapView() {
-		map = (MapView) findViewById(R.id.map);
-		controller = map.getController();
-		map.setSatellite(false);
-		map.setBuiltInZoomControls(true);		
+		mMap = (MapView) findViewById(R.id.map);
+		mController = mMap.getController();
+		mController.setZoom(20);
+		mMap.setSatellite(false);
+		mMap.setBuiltInZoomControls(true);		
 	}
-
 	/** Start tracking the position on the map. */
 	private void initMyLocation() {
-		listener=new MyLocationListener();
-		locationManager= (LocationManager)getSystemService(Context.LOCATION_SERVICE);
-		locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,LOCATION_UPDATE_INTERVAL, LOCATION_UPDATE_MIN_DISTANCE,listener);
-		mapOverlays = map.getOverlays(); 
-		drawable = this.getResources().getDrawable(R.drawable.icon57);
-		itemizedOverlay = new MyItemizedOverlay(drawable);
-		showCurrentLocation();
+		sListener=new MyLocationListener();
+		sLocationManager= (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+		sLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
+		        LOCATION_UPDATE_INTERVAL, LOCATION_UPDATE_MIN_DISTANCE,sListener);
+		mMapOverlays = mMap.getOverlays(); 
+		Location location = sLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+		mPoints = new ArrayList<GeoPoint>();
+		mPathOverlay =new PathOverlay(mPoints);
+		showCurrentLocation(location);		
 	}
-	protected void showCurrentLocation(){
-		Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+	/** adds overlay path to map, moves to current location. */
+	protected void showCurrentLocation(Location location){
 		if(location!=null){
-			currentGeoPoint=new GeoPoint((int)(location.getLatitude()*1e6),(int)(location.getLongitude()*1e6));
-			controller.setZoom(20);
-			controller.animateTo(currentGeoPoint);
-			OverlayItem overLayitem = new OverlayItem(currentGeoPoint, null, null);
-			itemizedOverlay.addOverlay(overLayitem);
-			mapOverlays.add(itemizedOverlay);
-			
-			
+			mCurrentGeoPoint=new GeoPoint((int)(location.getLatitude()*1e6),
+			        (int)(location.getLongitude()*1e6));
+			mPoints.add(mCurrentGeoPoint);
+			mController.animateTo(mCurrentGeoPoint);
+			mMapOverlays.add(mPathOverlay);
 		}
 	}
-	
 	private class MyLocationListener implements LocationListener{
 		public void onLocationChanged(Location location){
-			showCurrentLocation();
+			showCurrentLocation(location);
 		}
-
 		@Override
 		public void onProviderDisabled(String provider) {
 			// TODO Auto-generated method stub
-			
 		}
-
 		@Override
 		public void onProviderEnabled(String provider) {
 			// TODO Auto-generated method stub
-			
 		}
-
 		@Override
 		public void onStatusChanged(String provider, int status, Bundle extras) {
 			// TODO Auto-generated method stub
-			
 		}
 	}
-
 	@Override
 	protected boolean isRouteDisplayed() {
 		// Required by MapActivity
 		return false;
-	}
-
-/*	public class MyOverlay extends Overlay{
-
-	    @Override 
-	    public boolean draw(Canvas canvas, MapView mapView, boolean shadow, long when){
-	        super.draw(canvas, mapView, shadow);
-	        Point screenPts=new Point();
-	        mapView.getProjection().toPixels(currentGeoPoint, screenPts);
-	        canvas.drawPoint(screenPts.x, screenPts.y, paint);
-			return true;
-	    }*/
-
-
-	//}
-    
+	}    
 	//OnClick
 	@Override
 	public void onClick(View v){
 		switch(v.getId()){
 		//Send to a friend button
 		case R.id.send_to_friend_button:
-			startActivity(new Intent(this, SendTextMessage.class));
+			startActivity(new Intent(this, FriendTextMessage.class));
 			break;
-		//made it button
+			//made it button
 		case R.id.made_it_button:
-			//overlay.disableMyLocation();
-			//overlay.disableCompass();
-			startActivity(new Intent(this, SendMadeItTextMessage.class));
+			startActivity(new Intent(this, MadeItTextMessage.class));
 			finish();
 			break;
-		//danger button
+			//danger button
 		case R.id.danger_button:
-			startActivity(new Intent(this, SendTextMessageDanger.class));
+			startActivity(new Intent(this, DangerTextMessage.class));
 			break;
 		}
 	}
+	
+	// allow menu to pop up
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.track_menu, menu);
+        return true;
+    }
+    // brings up page when selected on menu
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+        case R.id.about_menuitem:
+            startActivity(new Intent(this, About.class));
+            break;
+        case R.id.tracksettings_menuitem:
+            startActivity(new Intent(this, Preferences.class));
+            break;
+        case R.id.planroute_menuitem:
+            startActivity(new Intent(this, RoutePage.class));
+            break;
+        case R.id.stoptracking_menuitem:
+            startActivity(new Intent(this, TrackingDisabler.class));
+            break;
+        }
+        return true;
+    }
 }

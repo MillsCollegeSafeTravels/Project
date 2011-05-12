@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<CheckBoxPreference
+		android:key="dangersound"
+		android:title="Danger Sound On/Off"
+		android:summary="Whether or not the Danger button makes a sound"
+		android:defaultValue="true" />
+	<CheckBoxPreference
+		android:key="texttime"
+		android:defaultValue="true"
+		android:summary="Determines whether or not to have a delay before sending danger text"
+		android:title="Enable delay before sending text"/>		
+	<CheckBoxPreference
+		android:key="other"
+		android:title="other title"
+		android:summary="other summary"
+		android:defaultValue="false" />
+</PreferenceScreen>
