@@ -34,17 +34,18 @@
 			android:theme="@android:style/Theme.NoTitleBar"/>
 		<activity android:name=".MapPage" 
 			android:theme="@android:style/Theme.NoTitleBar" />
-		<activity android:name=".TrackingDisabler" 
-			android:theme="@android:style/Theme.Dialog"/>
 		<activity android:name=".CrimesListActivity"/>
+		  <activity 
+            android:name=".Preferences"
+            android:label="Settings"
+            android:theme="@android:style/Theme.NoTitleBar" />
 		<uses-library android:name="com.google.android.maps" />
 		<activity 
 			android:name=".About"
 			android:label="About"
-			android:theme="@android:style/Theme.Dialog"/>
-		<activity 
-			android:name=".Preferences"
-			android:label="Settings "/>
+			android:theme="@android:style/Theme.Dialog"/>	
+		<activity android:name=".TrackingDisabler" 
+            android:theme="@android:style/Theme.Dialog"/>
 	</application>
 	<uses-sdk android:minSdkVersion="3" />
 </manifest> 

@@ -2,18 +2,14 @@
 <PreferenceScreen
 	xmlns:android="http://schemas.android.com/apk/res/android">
 	<CheckBoxPreference
-		android:key="fulltank"
-		android:title="fulltank title"
-		android:summary="fulltank summary"
+		android:key="texttime"
+		android:title="Automatically send danger text to friend"
+		android:summary="If checked, app won't wait 10 seconds before texting your friend to tell
+		                  them you're in trouble."
 		android:defaultValue="true" />
 	<CheckBoxPreference
-		android:key="units"
+		android:key="dangersound"
 		android:defaultValue="true"
-		android:summary="use Gallons and Miles"
-		android:title="Imperial units"/>
-	<CheckBoxPreference
-		android:key="other"
-		android:title="other title"
-		android:summary="other summary"
-		android:defaultValue="false" />
+		android:summary="If checked, a loud alarm will be emitted if you press the Danger button."
+		android:title="Enable Danger Alarm"/>
 </PreferenceScreen>

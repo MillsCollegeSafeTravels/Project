@@ -15,12 +15,14 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 public class CrimesListActivity extends ListActivity {
+    //constants
     public static final int SHOW_MAP_ID = Menu.FIRST;
 	private static final int END = 25; //for demo purposes
+	//members
     private CrimeDbAdapter mDbHelper;
-    private CharSequence defaultItemMsg = "Will load layout of activity for "
+    private CharSequence mDefaultItemMsg = "Will load layout of activity for "
             + "type of crime selected.";
-    private CharSequence defaultMenuMsg = "Will take to map view with crimes " + "shown.";
+    private CharSequence mDefaultMenuMsg = "Will take to map view with crimes " + "shown.";
 
     /** Called when the activity is first created. */
     @Override
@@ -39,7 +41,7 @@ public class CrimesListActivity extends ListActivity {
         // of crime selected
         lv.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                showDefaultMsg(defaultItemMsg);
+                showDefaultMsg(mDefaultItemMsg);
             }
         });
     }// onCreate
@@ -55,7 +57,7 @@ public class CrimesListActivity extends ListActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
         case SHOW_MAP_ID:
-            showDefaultMsg(defaultMenuMsg);
+            showDefaultMsg(mDefaultMenuMsg);
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -85,5 +87,4 @@ public class CrimesListActivity extends ListActivity {
     private void enterTestingData(CrimeDbAdapter adapter) {
         CrimeData.enterTestData(adapter);
     }
-
 }// CrimesListActivity

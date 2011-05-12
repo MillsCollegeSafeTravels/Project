@@ -6,7 +6,7 @@ public class CrimeData {
 
     public static final int CRIME_NUMBER = 13; // the number of different crime
                                                // types
-    public static int[] countsOfCrimes = new int[CRIME_NUMBER];
+    public static int[] sCountsOfCrimes = new int[CRIME_NUMBER];
 
     public static void enterTestData(CrimeDbAdapter adapter) {
         adapter.createCrime("Robbery", "blah1", "2011-03-11", 34.1111, 35.1111);
@@ -30,5 +30,4 @@ public class CrimeData {
      * TODO: change for crime database; need an additional class(es) that will
      * get info from the tsv/csv file and info used to populate table
      */
-
 }// CrimeData

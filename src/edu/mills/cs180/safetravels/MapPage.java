@@ -127,6 +127,7 @@ public class MapPage extends MapActivity implements OnClickListener {
 			break;
 			//danger button
 		case R.id.danger_button:
+		    //when we can implement settings, a nested switch will handle preferences here
 			startActivity(new Intent(this, DangerTextMessage.class));
 			break;
 		}

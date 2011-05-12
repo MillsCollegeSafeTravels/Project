@@ -7,23 +7,24 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 
 public class Preferences extends PreferenceActivity {
-    private boolean CheckboxPreference;
-    private String customPref;
+    private boolean mCheckboxPreference;
+    private String mCustomPref;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.settings);
     }
-    
+   //gets the preferences but doesn't do anything with them
+    // until we actually have Danger button options, this is superfluous :[
     private void getPrefs() {
             // Get the xml/preferences.xml preferences
             SharedPreferences prefs = PreferenceManager
                             .getDefaultSharedPreferences(getBaseContext());
-            CheckboxPreference = prefs.getBoolean("checkboxPref", true);
+            mCheckboxPreference = prefs.getBoolean("checkboxPref", true);
             // Get the custom preference
             SharedPreferences mySharedPreferences = getSharedPreferences(
                             "myCustomSharedPrefs", Activity.MODE_PRIVATE);
-            customPref = mySharedPreferences.getString("myCusomPref", "");
+            mCustomPref = mySharedPreferences.getString("myCusomPref", "");
     }
 }

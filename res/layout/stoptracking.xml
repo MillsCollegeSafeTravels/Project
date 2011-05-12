@@ -9,10 +9,10 @@
   	android:layout_height="wrap_content"
 	android:layout_width="wrap_content"/>
     <LinearLayout
- 	  android:orientation="horizontal"
-	   android:layout_height="wrap_content"
-	   android:layout_width="wrap_content"
-		android:gravity="center">
+ 	 android:orientation="horizontal"
+	 android:layout_height="wrap_content"
+	 android:layout_width="wrap_content"
+	 android:gravity="center">
 		<Button
 		  android:id="@+id/stop_track_yes_button"
 		  android:background="@drawable/mainbutton"
@@ -39,6 +39,5 @@
           android:layout_marginLeft="5dip"
           android:layout_marginTop="5dip"
           android:layout_marginBottom="5dip"/>
-    </LinearLayout>
-  
+    </LinearLayout>  
 </LinearLayout>
