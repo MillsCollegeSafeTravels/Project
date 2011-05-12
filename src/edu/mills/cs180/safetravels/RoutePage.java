@@ -18,6 +18,7 @@ import com.google.android.maps.MapActivity;
 import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
 import com.google.android.maps.MyLocationOverlay;
+
 public class RoutePage extends MapActivity implements OnClickListener{
 	private MapView mMap;
 	private MapController mController;
@@ -79,9 +80,9 @@ public class RoutePage extends MapActivity implements OnClickListener{
 		    Geocoder gc = new Geocoder(this);
 		    EditText address = (EditText)findViewById(R.id.destination_address);
             String addressInput = address.getText().toString(); //Get input text
-            double lat;
-            double lon;
             try {
+                double lat;
+                double lon;
                 List<Address> foundAdresses = gc.getFromLocationName(addressInput, 5); //Search addresses
                 for (int i = 0; i < foundAdresses.size(); ++i) {
                     //Save results as Longitude and Latitude
@@ -94,7 +95,6 @@ public class RoutePage extends MapActivity implements OnClickListener{
               catch (Exception e) {
                 //@todo: Show error message
               }
-              
 		
 		    break;
 		    
