@@ -9,6 +9,17 @@ import java.io.OutputStreamWriter;
 import java.net.URL;
 import java.net.URLConnection;
 
+/**
+ * ToFromCrimespotting is a class that handles querying the Oakland Crimspotting site 
+ * and parsing the returned file.
+ * 
+ * @author Kate Feeny
+ * @author Jess Martin
+ * @author TeAirra Ward
+ * @author Jodessa Lanzadares
+ * @author Dani E-F
+ *
+ */
 public class ToFromCrimespotting {
 
 	/**
