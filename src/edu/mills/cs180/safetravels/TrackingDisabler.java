@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 
 public class TrackingDisabler extends Activity implements OnClickListener{
+    
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
@@ -21,6 +22,8 @@ public class TrackingDisabler extends Activity implements OnClickListener{
 		//Yes
 		case R.id.stop_track_yes_button:
 			MapPage.sLocationManager.removeUpdates(MapPage.sListener);
+		    MapPage.sOverlay.disableMyLocation();  
+		    MapPage.sOverlay.disableCompass();
 			finish();
 			break;
 			//made it button
